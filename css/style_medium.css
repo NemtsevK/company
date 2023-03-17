@@ -1,46 +1,46 @@
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 768px) and (max-width: 1279px)  {
 
-  .title_h1 {
+  .title_h1  {
     font-size: 44px;
   }
 
-  .title_h2 {
+  .title_h2  {
     font-size: 38px;
   }
 
-  .title_h3 {
+  .title_h3  {
     font-size: 20px;
   }
 
 
-  .main__article_default {
+  .main__article_default  {
     width: 100%;
 
   }
 
-  .text {
+  .text  {
     font-size: 15px;
   }
 
   /*----------------------------------*/
   /*header*/
-  .logo-block_header {
+  .logo-block_header  {
     width: 100px;
     height: 20px;
     margin-right: 12px;
   }
 
-  .header__navigation {
+  .header__navigation  {
     margin-right: 30px;
   }
 
-  .navigation__item:not(:last-child) {
+  .navigation__item:not(:last-child)  {
     margin-right: 14px;
   }
 
   /*----------------------------------*/
   /*partner-block*/
-  .partner-block {
+  .partner-block  {
     border-radius: 0;
     margin-top: 83px;
     display: grid;
@@ -49,11 +49,11 @@
     padding: 50px 60px;
   }
 
-  .partner-block__text {
+  .partner-block__text  {
     width: 100%;
   }
 
-  .partner-block__img {
+  .partner-block__img  {
     display: block;
     height: auto;
     max-width: 100%;
@@ -61,7 +61,7 @@
 
   /*----------------------------------*/
   /*join-team-block*/
-  .join-team-block {
+  .join-team-block  {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -70,17 +70,17 @@
     padding: 0 20px;
   }
 
-  .info__title {
+  .info__title  {
     font-size: 38px;
   }
 
-  .join-team-block__company-list {
+  .join-team-block__company-list  {
     justify-content: space-between;
     width: 400px;
     margin: 34px auto 0;
   }
 
-  .join-team-block__info_yellow {
+  .join-team-block__info_yellow  {
     background: #ff7449;
     width: 295px;
 
@@ -90,19 +90,18 @@
 
   /*----------------------------------*/
   /*benefits-block*/
-  .benefits-block__main {
+  .benefits-block__main  {
     grid-template-columns: repeat(3, 220px);
   }
 
-
-  .question-block {
+  .question-block  {
     grid-template-columns: 375px;
     gap: 20px;
   }
 
   /*----------------------------------*/
   /*companies-benefit-block*/
-  .slider-block__box {
+  .slider-block__box  {
     width: 90%;
     grid-template-columns: 1fr 1fr;
     column-gap: 40px;
@@ -111,7 +110,7 @@
 
   /*----------------------------------*/
   /*jump-start-block*/
-  .jump-start-block {
+  .jump-start-block  {
     border-radius: 0;
     width: 100%;
     display: flex;
@@ -122,32 +121,32 @@
     padding: 70px 70px;
   }
 
-  .jump-start-block__main-title {
+  .jump-start-block__main-title  {
     align-self: center;
     text-align: center;
     width: 600px;
   }
 
-  .jump-start-block__main-text {
+  .jump-start-block__main-text  {
     width: 500px;
     align-self: center;
     text-align: center;
   }
 
-  .jump-start-block__button {
+  .jump-start-block__button  {
     margin-top: 30px;
   }
 
 
   /*----------------------------------*/
   /*promote-block*/
-  .promote-block {
+  .promote-block  {
     grid-template-columns: repeat(2, 350px);
   }
 
   /*----------------------------------*/
   /*manage-block*/
-  .manage-block {
+  .manage-block  {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -156,22 +155,22 @@
     margin-left: 0;
   }
 
-  .manage-block__box {
+  .manage-block__box  {
     max-width: 625px;
     align-items: center;
   }
 
-  .manage-block__box_img {
+  .manage-block__box_img  {
     order: 2;
     margin: 0;
   }
 
-  .manage-block__box_text {
+  .manage-block__box_text  {
     order: 1;
     margin: 0;
   }
 
-  .manage-block__box_btn {
+  .manage-block__box_btn  {
     order: 3;
     margin-top: 30px
   }
@@ -181,13 +180,13 @@
 
   /*----------------------------------*/
   /*question-block*/
-  .question-block {
+  .question-block  {
     width: 600px;
   }
 
   /*----------------------------------*/
   /*yourself-block*/
-  .yourself-block {
+  .yourself-block  {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -196,7 +195,7 @@
     padding: 65px 50px 80px 50px;
   }
 
-  .yourself-block__box {
+  .yourself-block__box  {
     width: 540px;
     box-sizing: border-box;
   }
@@ -204,13 +203,13 @@
   /*----------------------------------*/
   /*footer__box*/
 
-  .footer__box-wrapper {
+  .footer__box-wrapper  {
     grid-template-columns: 463px;
     gap: 20px;
     padding: 95px 0 83px 0;
   }
 
-  .subscribe__button {
+  .subscribe__button  {
     max-width: 144px;
   }
 

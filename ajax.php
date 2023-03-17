@@ -20,8 +20,3 @@ if(isset($_GET['company_name']) && $_GET['phone'] && $_GET['email'] && $_GET['de
     mysqli_close($connect);
     exit;
 }
-
-
-//CREATE DATABASE TestDb_Nemtsev DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci
-
-// CREATE TABLE TestDb_Nemtsev.Company_list (company_id INT NOT NULL AUTO_INCREMENT, company_name VARCHAR(100) NULL , phone VARCHAR(30) NULL, email VARCHAR(100) NULL, description VARCHAR(200) NULL, PRIMARY KEY (company_id)) ENGINE = InnoDB;

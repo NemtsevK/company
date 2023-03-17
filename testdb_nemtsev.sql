@@ -21,59 +21,40 @@ SET time_zone = "+00:00";
 -- База данных: `testdb_nemtsev`
 --
 
+CREATE DATABASE TestDb_Nemtsev DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `company_list`
 --
 
-CREATE TABLE `company_list` (
-  `company_id` int(11) NOT NULL,
-  `company_name` varchar(100) DEFAULT NULL,
-  `phone` varchar(30) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL
+CREATE TABLE TestDb_Nemtsev.Company_list (
+  company_id int(11) NOT NULL AUTO_INCREMENT,
+  company_name varchar(100) NULL,
+  phone varchar(30) NULL,
+  email varchar(100) NULL,
+  description varchar(200) NULL,
+  PRIMARY KEY (company_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `company_list`
+-- Дамп данных таблицы Company_list
 --
 
-INSERT INTO `company_list` (`company_id`, `company_name`, `phone`, `email`, `description`) VALUES
-(1, 'ispring', '123456', 'ispring@mail.com', 'hqtuhqwtuhjkflaf'),
-(2, 'Microsoft', '098-765', 'main@microsoft.com', 'gakyhawuiyanvbclk21 '),
-(3, 'Google', '456-124-152', 'mail@google.com', 'aolwrfyuqahfcbnc'),
-(4, '1', '23', 't@t.ru', 'fadfasfasfasf'),
-(5, 'asfasfasfasf', '3562626', 'mail@gmail.ru', 'asggasasgsgd'),
-(6, '124124', '51252', '52152@mail.ru', '125512'),
-(7, '12124', '124124', '124124@m.r', '4124'),
-(8, 'asgasgasg', 'asgasg', 'mai@mail.ru', 'agsasgg'),
-(9, 'sdgsdg', 'sdgsdg', 'mail@m.r', 'gaddgdg'),
-(10, 'sdgsdg', 'sdgsdg', 'mail@m.r', 'gaddgdg'),
-(11, 'asgasg', 'agsgas', 'mail@m.r', 'asgasgasg'),
-(12, 'asggas', 'agasg', 'mail@m.r', 'asggasasgag'),
-(13, 'agsag', 'asgasg', 'mail@m.r', 'yqyww');
+INSERT INTO Company_list (company_name, phone, email, description) VALUES
+('ispring', '123456', 'ispring@mail.com', 'hqtuhqwtuhjkflaf'),
+('Microsoft', '098-765', 'main@microsoft.com', 'gakyhawuiyanvbclk21 '),
+('Google', '456-124-152', 'mail@google.com', 'aolwrfyuqahfcbnc'),
+('1', '23', 't@t.ru', 'fadfasfasfasf'),
+('asfasfasfasf', '3562626', 'mail@gmail.ru', 'asggasasgsgd'),
+('124124', '51252', '52152@mail.ru', '125512'),
+('12124', '124124', '124124@m.r', '4124'),
+('asgasgasg', 'asgasg', 'mai@mail.ru', 'agsasgg'),
+('sdgsdg', 'sdgsdg', 'mail@m.r', 'gaddgdg');
 
---
--- Индексы сохранённых таблиц
---
 
---
--- Индексы таблицы `company_list`
---
-ALTER TABLE `company_list`
-  ADD PRIMARY KEY (`company_id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `company_list`
---
-ALTER TABLE `company_list`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -22,12 +22,20 @@
     font-size: 15px;
   }
 
+  .button  {
+    font-size: 15px;
+  }
+
   /*----------------------------------*/
   /*header*/
+  .header__logo-block  {
+    height: 22px;
+  }
+
   .logo-block_header  {
     width: 100px;
     height: 20px;
-    margin-right: 12px;
+    margin: 0 12px 0 0;
   }
 
   .header__navigation  {
@@ -38,11 +46,23 @@
     margin-right: 14px;
   }
 
+  .navigation__item{
+    font-size: 14px;
+  }
+
+  .auth-link  {
+    font-size: 14px;
+
+  }
+
+  .main__article  {
+    margin-top: 80px;
+  }
+
   /*----------------------------------*/
   /*partner-block*/
   .partner-block  {
     border-radius: 0;
-    margin-top: 83px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -68,6 +88,10 @@
     align-items: center;
     row-gap: 20px;
     padding: 0 20px;
+  }
+
+  .join-team-block__title{
+    text-align: center;
   }
 
   .info__title  {
@@ -101,6 +125,10 @@
 
   /*----------------------------------*/
   /*companies-benefit-block*/
+  .companies-benefit-block  {
+    margin-top: 80px;
+  }
+
   .slider-block__box  {
     width: 90%;
     grid-template-columns: 1fr 1fr;
@@ -175,7 +203,11 @@
     margin-top: 30px
   }
 
-
+  /*----------------------------------*/
+  /*products-block*/
+  .language-block__item  {
+    font-size: 15px;
+  }
 
 
   /*----------------------------------*/
@@ -200,13 +232,17 @@
     box-sizing: border-box;
   }
 
+  .box-input  {
+    align-self: center;
+  }
+
   /*----------------------------------*/
   /*footer__box*/
 
   .footer__box-wrapper  {
     grid-template-columns: 463px;
     gap: 20px;
-    padding: 95px 0 83px 0;
+    padding: 60px 0;
   }
 
   .subscribe__button  {

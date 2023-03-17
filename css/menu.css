@@ -27,10 +27,9 @@
 
   .header__menu-collapse  {
     position: relative;
-    width: 40px;
+    width: 35px;
     height: 35px;
     display: block;
-    margin-left: 10px;
   }
 
   .header__menu-collapse:hover  {
@@ -96,7 +95,7 @@
   .navigation__item  {
     padding: 15px 0;
     margin: 0 15px;
-    font-size: 15px;
+    font-size: 14px;
     border-bottom: 1px solid #dde0e5;
   }
 

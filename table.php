@@ -4,33 +4,51 @@ require_once('php/Extensions.php');
 $connect = ConnectToServer();
 $TABLE = null;
 
-$query_select = "SELECT company_id, company_name, phone, email, description FROM Company_list";
-$answer = mysqli_query($connect,$query_select);
+if(isset($_GET['email'])){
+    $email = Clean($_GET['email']);
 
-$num_rows = mysqli_num_rows($answer);
-if($num_rows){
-    while($row = mysqli_fetch_assoc($answer)){
-        $company_id = $row['company_id'];
-        $company_name = $row['company_name'];
-        $phone = $row['phone'];
-        $email = $row['email'];
-        $description = $row['description'];
+    $query_select = "SELECT company_id
+        ,company_name
+        ,phone
+        ,email
+        ,description 
+        FROM Company_list
+        WHERE email LIKE '$email'";
     
-        $TABLE.="<tr>";
-        $TABLE.="<td>$company_id</td>";
-        $TABLE.="<td>$company_name</td>";
-        $TABLE.="<td>$phone</td>";
-        $TABLE.="<td>$email</td>";
-        $TABLE.="<td>$description</td>";
-        $TABLE.="</tr>";
+    $answer = mysqli_query($connect,$query_select);
+    
+    $num_rows = mysqli_num_rows($answer);
+    if($num_rows){
+        $count = 1;
+        while($row = mysqli_fetch_assoc($answer)){
+            
+            $company_id = $row['company_id'];
+            $company_name = $row['company_name'];
+            $phone = $row['phone'];
+            $email = $row['email'];
+            $description = $row['description'];
+        
+            $TABLE.="<tr>";
+            $TABLE.="<td>$count</td>";
+            $TABLE.="<td>$company_name</td>";
+            $TABLE.="<td>$phone</td>";
+            $TABLE.="<td>$email</td>";
+            $TABLE.="<td>$description</td>";
+            $TABLE.="</tr>";
+            $count++;
+        }
+    } 
+    else {
+        echo Alert("Данные отсутствуют!");
+        header("Refresh: 0; url='index.html#become-partner'");
+        exit;
     }
-} 
-else {
+
+} else {
     echo Alert("Данные отсутствуют!");
     header("Refresh: 0; url='index.html#become-partner'");
     exit;
 }
-
 
 ?>
 <table>
@@ -49,7 +67,7 @@ else {
         <table class="table">
             <thead>
                 <tr>
-                    <th>id</th>
+                    <th>№</th>
                     <th>Company name</th>
                     <th>Phone</th>
                     <th>Email</th>

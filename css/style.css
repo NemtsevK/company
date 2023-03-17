@@ -73,6 +73,23 @@
   line-height: 26px;
 }
 
+.text-link:hover{
+  text-decoration: none;
+}
+
+.text-link_white  {
+  color: #ffffff;
+}
+
+.text-link_black  {
+  color: #000000;
+}
+
+.text-link_white:hover,
+.text-link_black:hover  {
+  text-decoration: none;
+}
+
 .button  {
   display: inline-block;
   border-radius: 100px;
@@ -175,6 +192,10 @@
   height: 30px;
   margin-right: 33px;
   background-size: contain;
+}
+
+.header__logo-block{
+  height: 25px;
 }
 
 .header__navigation  {
@@ -354,7 +375,7 @@
 
 .join-team-block__title  {
   margin: 0;
-  text-align: center;
+  width: 381px;
 }
 
 .join-team-block__text  {
@@ -862,7 +883,7 @@
   height: 300px;
   z-index: -1;
   margin: -100px 0 0 -45px;
-  background: url("../img/octagon_blue.svg") 0 /230px 230px no-repeat;
+  background: url("../img/octagon_blue.svg") 0 / 230px 230px no-repeat;
 }
 
 .yourself-block__text  {
@@ -875,6 +896,7 @@
 .box-input  {
   border-radius: 30px;
   padding: 44px 56px 62px 56px;
+  align-self: end;
 }
 
 .box-input__title  {
@@ -985,7 +1007,7 @@
 .subscribe__input-field::placeholder  {
   font-family: "Montserrat", "Arial", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: #a9a9a9;
   padding: 5px 0 6px 0;

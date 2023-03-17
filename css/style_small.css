@@ -5,7 +5,7 @@
   }
 
   .title_h2  {
-    font-size: 32px;
+    font-size: 27px;
   }
 
   .title_h3  {
@@ -14,22 +14,24 @@
 
 
   .text_medium  {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .text_big  {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .text  {
     font-size: 14px;
   }
 
+  .button  {
+    font-size: 14px;
+  }
 
   /*----------------------------------*/
   .main__article  {
     width: 100%;
-    /* padding: 40px 40px; */
   }
 
   /*----------------------------------*/
@@ -43,23 +45,20 @@
     padding: 0 20px;
   }
 
-
   .header__menu-collapse  {
-    /* background: url("../img/menu.svg") 0 / cover no-repeat; */
     width: 21px;
     height: 17px;
     justify-self: start;
   }
 
   .header__logo-block  {
-    justify-self: center;
-
+    height: 28px;
   }
 
   .logo-block_header  {
     width: 120px;
     height: 30px;
-    margin: 6px 0 0 0;
+    margin: 0;
   }
 
   .header__service-block  {
@@ -84,6 +83,9 @@
     display: none;
   }
 
+  .main__article  {
+    margin-top: 80px;
+  }
 
   /*----------------------------------*/
   /*partner-block*/
@@ -120,7 +122,6 @@
   /*----------------------------------*/
   /*join-team-block*/
   .join-team-block  {
-    margin-top: 60px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -130,7 +131,12 @@
 
   }
 
-
+  .join-team-block__title{
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
 
   .info__title  {
     font-size: 34px;
@@ -169,7 +175,6 @@
   /*----------------------------------*/
   /*benefits-block*/
   .benefits-block  {
-    margin-top: 60px;
     padding: 0 20px;
   }
 
@@ -196,7 +201,6 @@
   /*----------------------------------*/
   /*jump-start-block*/
   .jump-start-block  {
-    margin-top: 60px;
     border-radius: 0;
     display: flex;
     flex-flow: column wrap;
@@ -218,7 +222,6 @@
   /*----------------------------------*/
   /*promote-block*/
   .promote-block  {
-    margin-top: 60px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -240,7 +243,6 @@
   /*----------------------------------*/
   /*manage-block*/
   .manage-block  {
-    margin-top: 60px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -271,7 +273,7 @@
 
   .manage-block__box_btn  {
     order: 3;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
 
   .manage-block__img  {
@@ -285,12 +287,15 @@
   /*----------------------------------*/
   /*products-block*/
   .products-block  {
-    margin-top: 60px;
     padding: 0 20px;
   }
 
   .products-block__text  {
     width: 100%;
+  }
+
+  .language-block__item  {
+    font-size: 12px;
   }
 
   /*----------------------------------*/
@@ -301,21 +306,17 @@
     justify-content: center;
     align-items: center;
     row-gap: 20px;
-    margin-top: 60px;
     border-radius: 0;
     padding: 30px 40px 50px;
   }
 
   /*----------------------------------*/
   /*companies-benefit-block*/
-  .companies-benefit-block  {
-    margin-top: 60px
-  }
-
   .companies-benefit-block__title  {
     width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
-
 
   .slider-block__box  {
     width: 90%;
@@ -327,10 +328,10 @@
     padding: 60px 40px 20px;
   }
 
-
   /*----------------------------------*/
   /*yourself-block*/
   .yourself-block  {
+    margin-top: 60px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -345,7 +346,6 @@
 
   .yourself-block__box  {
     margin-top: 0;
-
   }
 
   .yourself-block__text  {
@@ -359,27 +359,35 @@
 
   .box-input  {
     padding: 40px 20px 50px;
+    align-self: center;
   }
 
   .box-input__button  {
     font-size: 14px;
   }
 
+  .box-input__input-field,
+  .box-input__text-area  {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .box-input__input-field::placeholder,
+  .box-input__text-area::placeholder  {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
   /*----------------------------------*/
   /*footer__box*/
-
   .footer__box-wrapper  {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     row-gap: 20px;
-    padding: 30px 20px 40px;
+    padding: 40px;
   }
-
-
-
 
   .subscribe__area-input  {
     display: flex;
@@ -387,16 +395,11 @@
     justify-content: center;
     align-items: stretch;
     row-gap: 20px;
-
   }
 
   .rights-block  {
     align-self: flex-start;
   }
-
-
-
-
 
 
 }

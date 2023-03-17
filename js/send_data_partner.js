@@ -7,10 +7,11 @@ const getUsers = async (company_name, phone, email, description) => {
     if (response.ok) {
       html += `<p>Data has been sent successfully</p>`;
       html += `<p><a href="table.php">View the list of partners</a></p>`;
-      document.querySelector("#company_name").value = "";
-      document.querySelector("#phone").value = "";
-      document.querySelector("#email").value = "";
-      document.querySelector("#description").value = "";
+      $('#company_name').addClass("input-field_error").val('');
+      $('#phone').addClass("input-field_error").val('');
+      $('#email').addClass("input-field_error").val('');
+      $('#description').addClass("input-field_error").val('');
+      $('#send-data-partner').attr('disabled', 'disabled');
     }
   } catch (error) {
     console.log(error);

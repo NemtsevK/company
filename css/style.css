@@ -108,7 +108,16 @@
   background: rgba(91, 107, 255, 0.9);
 }
 
+
+
 .button_blue:active  {
+  background: #3d50f9;
+}
+
+.button_blue[disabled],
+.button_blue:hover[disabled],
+.button_blue:active[disabled]  {
+  cursor:default;
   background: #3d50f9;
 }
 

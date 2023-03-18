@@ -101,9 +101,9 @@ function ValidArray(input_array, button) {
   }
 
   if (enable) {
-    $(button).removeAttr("disabled");
+    // $(button).removeAttr("disabled");
   } else {
-    $(button).attr("disabled", "disabled");
+    // $(button).attr("disabled", "disabled");
   }
 }
 

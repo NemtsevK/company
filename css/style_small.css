@@ -289,6 +289,7 @@
   .manage-block__box_btn  {
     order: 3;
     margin: 10px 0 0;
+    align-self: center;
   }
 
   .manage-block__img  {

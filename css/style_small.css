@@ -2,19 +2,23 @@
 
   .title_h1  {
     font-size: 38px;
+    line-height: 40px;
   }
 
   .title_h2  {
     font-size: 27px;
+    line-height: 30px;
   }
 
   .title_h3  {
     font-size: 18px;
+    line-height: 22px;
   }
 
 
   .text_medium  {
     font-size: 18px;
+    line-height: 18px;
   }
 
   .text_big  {
@@ -23,6 +27,12 @@
 
   .text  {
     font-size: 14px;
+    line-height: 20px;
+  }
+
+  .text_small  {
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .button  {
@@ -140,6 +150,7 @@
 
   .info__title  {
     font-size: 34px;
+    line-height: 38px;
   }
 
   .join-team-block__text  {
@@ -178,6 +189,10 @@
     padding: 0 20px;
   }
 
+  .benefits-block__title::before  {
+    margin-bottom: 15px;
+  }
+
   .benefits-block__header  {
     margin-bottom: 30px;
   }
@@ -192,6 +207,7 @@
 
   .benefits-block__box  {
     max-width: 320px;
+    padding: 20px 20px 25px 25px;
   }
 
   .benefits-block__area-button  {
@@ -209,7 +225,6 @@
     row-gap: 40px;
     padding: 40px 40px;
   }
-
 
   .jump-start-block__button  {
     margin-top: 0;
@@ -233,7 +248,7 @@
   .promote-block__box  {
     max-width: 490px;
     box-sizing: border-box;
-    padding: 30px 40px;
+    padding: 20px 20px 25px 25px;
   }
 
   .promote-block__main-title  {
@@ -282,8 +297,6 @@
     max-width: 100%;
   }
 
-
-
   /*----------------------------------*/
   /*products-block*/
   .products-block  {
@@ -319,7 +332,7 @@
   }
 
   .slider-block__box  {
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -358,7 +371,7 @@
   }
 
   .box-input  {
-    padding: 40px 20px 50px;
+    padding: 40px 20px 20px;
     align-self: center;
   }
 
@@ -400,6 +413,5 @@
   .rights-block  {
     align-self: flex-start;
   }
-
 
 }

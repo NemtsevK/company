@@ -47,6 +47,9 @@
 
 .title_h4  {
   margin: 0;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 31px;
 }
 
 .text  {
@@ -64,6 +67,7 @@
 .text_medium  {
   margin: 0;
   font-size: 22px;
+  line-height: 22px;
 }
 
 .text_small  {
@@ -687,16 +691,15 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-top: 5px;
+  align-self: start;
 }
 
 .manage-block__box_img  {
   grid-row: span 2;
-  margin-top: 30px;
 }
 
 .manage-block__box_btn  {
-  margin-bottom: 20px;
+  align-self: start;
 }
 
 .manage-block__text  {
@@ -784,14 +787,13 @@
 }
 
 .companies-benefit-block__title  {
-  margin: 0 auto;
+  margin: 0 auto 59px;
   width: 650px;
   text-align: center;
 }
 
 .slider-block__box  {
   margin: 0 auto;
-  margin-top: 59px;
   padding: 92px 95px 66px 96px;
   width: 1000px;
   box-sizing: border-box;
@@ -977,12 +979,6 @@
 
 .rights-block__text  {
   margin-top: 15px;
-}
-
-.subscribe__title  {
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 31px;
 }
 
 .subscribe__text  {

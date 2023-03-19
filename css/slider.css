@@ -1,0 +1,136 @@
+.slider-block  {
+    height: 100%;
+}
+
+.slider-block-inner  {
+    position: relative;
+}
+
+.slick-list  {
+    overflow: hidden;
+}
+
+.slick-track  {
+    display: flex;
+    column-gap: 48px;
+}
+
+.slick-arrow  {
+    position: absolute;
+    font-size: 0;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 9px 23px rgba(22, 25, 32, 0.15);
+}
+
+.slick-arrow:hover  {
+    cursor: pointer;
+    box-shadow: 0px 5px 23px rgba(22, 25, 32, 0.3);
+}
+
+.slick-arrow:active  {
+    box-shadow: 0px 5px 23px rgba(22, 25, 32, 0.15);
+}
+
+.slick-prev  {
+    left: 0;
+    background: #ffffff url("../img/prev_slide.svg") 17px 14px / 12px 22px no-repeat;
+}
+
+.slick-next  {
+    right: 0;
+    background: #ffffff url("../img/next_slide.svg") 22px 14px / 12px 22px no-repeat;
+}
+
+.slick-dots  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 13px;
+}
+
+.slick-dots li  {
+    list-style: none;
+}
+
+.slick-dots li button  {
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 0;
+    background: #EDF2F7;
+}
+
+.slick-dots li button:hover  {
+    cursor: pointer;
+}
+
+.slick-dots li.slick-active button  {
+    background: #3D50F9;
+}
+
+.slider  {
+    position: relative;
+}
+
+.slider-block__block-arrows  {
+    height: 50px;
+    width: 1050px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -525px;
+    z-index: 10;
+}
+
+@media (min-width: 768px) and (max-width: 1279px)  {
+
+    .slick-dots li button  {
+      width: 12px;
+      height: 12px;
+    }
+
+    .slider-block__block-arrows  {
+        width: 760px;
+        margin: -25px 0 0 -380px;
+    }
+  
+  }
+  
+  @media screen and (max-width: 767px)  {
+   
+    .slick-track  {
+        column-gap: 0;
+    }
+
+    .slick-dots li button  {
+      width: 12px;
+      height: 12px;
+    }
+
+    .slider-block__block-arrows  {
+        width: 96%;
+        left: 4%;
+        margin: -25px 0 0 -2vw;
+    }
+
+    .slick-arrow  {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slick-prev  {
+        background-position: 12px 9px;
+        background-size: 12px 22px;
+    }
+
+    .slick-next  {
+        background-position: 16px 9px;
+        background-size: 12px 22px;
+
+    }
+
+  }

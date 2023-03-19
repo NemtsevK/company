@@ -21,14 +21,6 @@ const getUsers = async (company_name, phone, email, description) => {
   $(".box-input-wrapper").html(text_result);
 };
 
-// document.querySelector("#send-data-partner").onsubmit = () => {
-//   const company_name = document.querySelector("#company_name").value;
-//   const phone = document.querySelector("#phone").value;
-//   const email = document.querySelector("#email").value;
-//   const description = document.querySelector("#description").value;
-//   getUsers(company_name, phone, email, description);
-// };
-
 document.querySelector(".send-data-partner").onsubmit = function (evt) {
   evt.preventDefault();
   const company_name = document.querySelector("#company_name").value;

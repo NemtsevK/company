@@ -339,8 +339,7 @@
 }
 
 .partner-block__title  {
-  margin-top: 5px;
-  margin-bottom: 29px;
+  margin: 10px 0 31px 0;
 }
 
 .partner-block__text  {
@@ -373,8 +372,8 @@
 .join-team-block__box_left  {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
 }
 
 .join-team-block__title  {
@@ -396,7 +395,7 @@
   justify-content: space-between;
   align-items: center;
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 25px;
 }
 
 .join-team-block__box_right  {
@@ -415,7 +414,7 @@
 
 .join-team-block__info_grey  {
   background: #2c3442;
-  padding: 33px 50px 33px 47px;
+  padding: 39px 50px 33px 47px;
   margin: 0 0 0 30px;
   width: 332px;
 }
@@ -429,7 +428,7 @@
 }
 
 .join-team-block__info_blue  {
-  padding: 53px 50px 40px 49px;
+  padding: 50px 50px 40px 52px;
   width: 503px;
   background: #3d50f9;
 }
@@ -479,21 +478,21 @@
   background: url("../img/benefits_1.svg") 0 / 59px 56px no-repeat;
   width: 59px;
   height: 56px;
-  margin: 0 0 45px 0;
+  margin: 0 0 48px 0;
 }
 
 .benefits-block__title_second::before  {
   background: url("../img/benefits_2.svg") 0 / 56px 67px no-repeat;
   width: 56px;
   height: 67px;
-  margin: 0 0 40px -5px;
+  margin: -6px 0 43px 0px;
 }
 
 .benefits-block__title_third::before  {
   background: url("../img/benefits_3.svg") 0 / 58px 66px no-repeat;
   width: 58px;
   height: 66px;
-  margin: -5px 0 40px -5px;
+  margin: -5px 0 44px -5px;
 }
 
 .benefits-block__text  {
@@ -541,7 +540,7 @@
 }
 
 .jump-start-block__button  {
-  margin-top: 55px;
+  margin: 54px 0 13px 0;
 }
 
 .jump-start-block__box-right  {
@@ -549,7 +548,7 @@
   grid-template-columns: 55px 355px;
   grid-row: span 2;
   column-gap: 25px;
-  row-gap: 32px;
+  row-gap: 36px;
   justify-content: center;
   align-content: start;
 }
@@ -649,14 +648,14 @@
   background: url("../img/promote_1.svg") 0 / 38px 36px no-repeat;
   width: 38px;
   height: 36px;
-  margin-bottom: 9px;
+  margin: -6px 0 10px 4px;
 }
 
 .promote-block__title_second::before  {
   background: url("../img/promote_2.svg") 0 / 34px 40px no-repeat;
   width: 34px;
   height: 40px;
-  margin-bottom: 15px;
+  margin: -2px 0 18px 2px;
 }
 
 .promote-block__title_third::before  {

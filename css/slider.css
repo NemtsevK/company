@@ -49,6 +49,8 @@
     align-items: center;
     justify-content: center;
     column-gap: 13px;
+    margin: 27px 0 0 0;
+    padding: 0;
 }
 
 .slick-dots li  {

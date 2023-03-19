@@ -278,12 +278,12 @@
 
   .manage-block__box_img  {
     order: 2;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .manage-block__box_text  {
     order: 1;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .manage-block__box_btn  {

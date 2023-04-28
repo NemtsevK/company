@@ -1,16 +1,16 @@
 @media (min-width: 768px) and (max-width: 1279px)  {
 
-  .title_h1  {
+  .title-first-level  {
     font-size: 44px;
     line-height: 45px;
   }
 
-  .title_h2  {
+  .title-second-level  {
     font-size: 38px;
     line-height: 42px;
   }
 
-  .title_h3  {
+  .title-third-level  {
     font-size: 20px;
     line-height: 24px;
   }

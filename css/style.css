@@ -24,28 +24,28 @@
 }
 
 /*----------------------------------*/
-.title_h1  {
+.title-first-level  {
   margin: 0;
   font-size: 50px;
   font-weight: 700;
   line-height: 49px;
 }
 
-.title_h2  {
+.title-second-level  {
   margin: 0;
   font-size: 42px;
   font-weight: 700;
   line-height: 46px;
 }
 
-.title_h3  {
+.title-third-level  {
   margin: 0;
   font-size: 22px;
   font-weight: 600;
   line-height: 26px;
 }
 
-.title_h4  {
+.title-fourth-level  {
   margin: 0;
   font-weight: 600;
   font-size: 17px;

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="page" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iSpring</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/EuclidCircularB-Medium.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/EuclidCircularB-Regular.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/EuclidCircularB-SemiBold.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page__body">
+<header class="header">
+  <div class="header__container container">
+    <div class="header__menu-collapse"><span></span></div>
+    <div class="header__logo">
+      <a class="header__logo-link" href="index.html" aria-label="Главная страница">
+        <img class="header__logo-image" src="images/brand/logo.svg" width="120" height="30" alt="Логотип iSpring">
+      </a>
+    </div>
+    <ul class="header__nav nav">
+      <li class="nav__item ">
+        <div class="nav__item-list">Products</div>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">Pricing</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">Support</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">Customers</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="companies.html">Company</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="#">Blog</a>
+      </li>
+    </ul>
+    <div class="header__service-block service-block">
+      <div class="service-block__item language-bo ">EN</div>
+      <a class="service-block__item shopping-link" href="#"></a>
+      <a class="service-block__item search-link" href="#"></a>
+      <a class="service-block__item auth-link" href="#">Log in</a>
+    </div>
+  </div>
+</header>
+<main class="page__main main">
+  <div class="container">
+    <table class="table">
+      <thead class="table__head">
+      <tr class="table__head-row">
+        <th class="table__head-cell">№</th>
+        <th class="table__head-cell">Company name</th>
+        <th class="table__head-cell">Phone</th>
+        <th class="table__head-cell">Email</th>
+        <th class="table__head-cell">Description</th>
+      </tr>
+      </thead>
+      <tbody class="table__body"></tbody>
+    </table>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__copyright ">
+      <a class="footer__logo-link" href="#" aria-label="Главная страница">
+        <img class="footer__logo-image" src="images/brand/logo.svg" width="104" height="24" alt="Логотип iSpring">
+      </a>
+      <p class="footer__copyright-text text_small">&copy; 2001-2024 iSpring Solutions Inc. All rights reserved. Terms of Use | Privacy Policy</p>
+    </div>
+    <div class="footer__subscribe">
+      <h4 class="footer__subscribe-title title-fourth-level">Subscribe to our newsletters</h4>
+      <p class="footer__subscribe-text text_small">By clicking “Subscribe”, you agree to our Privacy Policy. All emails include an unsubscribe link, so you can opt-out at any time.</p>
+      <form class="footer__form form-subscribe">
+        <input class="form-subscribe__input text-input" type="email" name="email_for_news" placeholder="Email" required>
+        <button class="form-subscribe__button button button--second" type="button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+<script src="js/utils.js"></script>
+<script src="js/companies.js" type="module"></script>
+</body>
+</html>

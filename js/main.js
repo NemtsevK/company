@@ -9,7 +9,7 @@ const RequestText = {
   error: 'Error! Information not added',
 }
 
-const buttonPartner = document.querySelector('#button_partner');
+const formPartner = document.querySelector('.form-partner');
 
 async function onButtonPartnerSubmit (event) {
   event.preventDefault();
@@ -22,9 +22,10 @@ async function onButtonPartnerSubmit (event) {
 
   boxInputResult.innerText = result === true ? RequestText.successful : RequestText.error;
   console.log(result);
+  console.log('result');
 }
 
-buttonPartner.addEventListener('click', onButtonPartnerSubmit);
+formPartner.addEventListener('submit', onButtonPartnerSubmit);
 
 
 /**
@@ -32,7 +33,7 @@ buttonPartner.addEventListener('click', onButtonPartnerSubmit);
  * @return {Promise<*>}
  */
 async function sendPartnerData(){
-  const companyName = document.querySelector('#company_name');
+  const companyName = document.querySelector('#company-name');
   const phone = document.querySelector('#phone');
   const email = document.querySelector('#email');
   const description = document.querySelector('#description');

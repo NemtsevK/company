@@ -81,51 +81,103 @@ function initMenu() {
  *
  */
 function setValidation() {
+
   const ALL_SYMBOLS = /.*\S+./;
   const EMAIL_PATTERN = /^([a-z0-9._-]+@[a-z0-9-]+\.[a-z]+)$/;
 
-  const inputs = [
-    {
-      id: '#company_name',
-      pattern: ALL_SYMBOLS,
-    },
-    {
-      id: '#phone',
-      pattern: ALL_SYMBOLS,
-    },
-    {
-      id: '#email',
-      pattern: EMAIL_PATTERN,
-    },
-    {
-      id: '#description',
-      pattern: ALL_SYMBOLS,
-    }
-  ];
+  const form = document.querySelector('.form-partner');
+  const inputList = Array.from(form.querySelectorAll('.form-partner__input'));
+  const buttonElement = form.querySelector('.form-partner__button');
+  const formErrorElement = form.querySelector('.form-partner__empty-error');
 
-  let enableButton = false;
-  const buttonPartner = document.querySelector('#button_partner');
+  toggleButton();
 
-  inputs.forEach((input) => {
-    const inputElement = document.querySelector(input.id);
-    const onInputElementChange = () => {
+  startValidation();
 
-      if (input.pattern.test(inputElement.value)) {
-        inputElement.classList.remove('input-field_error');
-        enableButton = true;
-      } else {
-        inputElement.classList.add('input-field_error');
-        enableButton = false;
+  function startValidation() {
+    toggleButton();
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (hasInvalidInput()) {
+        formError()
+        inputList.forEach((inputElement) => {
+          checkInputValidity(inputElement);
+          toggleInputError(inputElement);
+        })
       }
-    }
+    })
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', () => {
+        checkInputValidity(inputElement);
+        toggleButton();
+      })
+      inputElement.addEventListener('blur', () => {
+        toggleInputError(inputElement);
+      })
+      inputElement.addEventListener('focus', () => {
+        toggleErrorSpan(inputElement);
+      })
+    })
+  }
 
-    inputElement.addEventListener('input', onInputElementChange);
-    if (enableButton === false) {
-      console.log('enableButton',enableButton)
+  function checkInputValidity(inputElement) {
+    if (inputElement.validity.patternMismatch) {
+      inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+    } else {
+      inputElement.setCustomValidity(checkLengthMismatch(inputElement));
     }
-  });
+  }
 
-  buttonPartner.disabled = enableButton !== true;
+  function checkLengthMismatch(inputElement) {
+    if (inputElement.type !== 'text') {
+      return ''
+    }
+    const valueLength = inputElement.value.trim().length;
+    if (valueLength < inputElement.minLength) {
+      return `Минимальное количество символов: ${inputElement.minLength}`;
+    }
+    return ''
+  }
+
+  function hasInvalidInput() {
+    return inputList.some(inputElement => !inputElement.validity.valid);
+  }
+
+  function toggleInputError(inputElement) {
+    if (!inputElement.validity.valid) {
+      toggleErrorSpan(inputElement, inputElement.validationMessage);
+    } else {
+      toggleErrorSpan(inputElement);
+    }
+  }
+
+  function toggleErrorSpan(inputElement, errorMessage){
+    const errorElement = document.querySelector(`#${inputElement.id}-error`)
+    if (errorMessage) {
+      inputElement.classList.add('form-partner__input--error');
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add('form-partner__error--active');
+    } else {
+      inputElement.classList.remove('form-partner__input--error');
+      errorElement.textContent = '';
+      errorElement.classList.remove('form-partner__error--active');
+    }
+  }
+
+  function toggleButton() {
+    if (hasInvalidInput()) {
+      buttonElement.disabled = true;
+      // buttonElement.setAttribute('aria-disabled', 'true');
+    } else {
+      buttonElement.disabled = false;
+      // buttonElement.setAttribute('aria-disabled', 'false');
+      formErrorElement.textContent = '';
+    }
+  }
+
+  function formError() {
+    formErrorElement.textContent = 'Заполните все поля для отправки формы.';
+  }
 }
 
 

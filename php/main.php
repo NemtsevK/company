@@ -11,7 +11,7 @@ $connect = connectToServer();
 $company_name = clean($_POST['company_name'], 100);
 $phone = clean($_POST['phone'], 30);
 $email = clean($_POST['email'], 100);
-$description = Clean($_POST['description'], 200);
+$description = clean($_POST['description'], 200);
 
 $query_insert = "INSERT INTO company_list (name, phone, email, description)
     VALUES ('$company_name','$phone','$email','$description')";

@@ -318,17 +318,25 @@
         <div class="box-input-wrapper">
           <h3 class="box-input__title">Company Information</h3>
           <form class="form-partner" action="" method="post">
-            <input class="form-partner__input text-input" name="company_name" id="company_name"
-                   placeholder="Company name" pattern=".*\S+.*" required>
-            <input class="form-partner__input text-input" type="tel" name="phone" id="phone"
-                   placeholder="Phone" pattern=".*\S+.*" required>
-            <input class="form-partner__input text-input" type="email" name="email" id="email"
-                   placeholder="Email" pattern="^([a-z0-9._-]+@[a-z0-9-]+\.[a-z]+)$" required>
-            <textarea class="form-partner__textarea text-input" name="description" id="description"
-                      placeholder="Brief company description (years in business, eLearning experience, and why you want to be an iSpring partner)"
-                      pattern=".*\S+.*" required></textarea>
+            <div class="form-partner__field-container">
+              <input class="form-partner__input text-input" name="company-name" id="company-name" placeholder="Company name" pattern=".*\S+.*" aria-label="Company name" required>
+              <span class="form-partner__error" id="company-name-error" aria-live="polite"></span>
+            </div>
+            <div class="form-partner__field-container">
+              <input class="form-partner__input text-input" type="tel" name="phone" id="phone" placeholder="Phone" pattern=".*\S+.*" aria-label="phone" required>
+              <span class="form-partner__error" id="phone-error" aria-live="polite"></span>
+            </div>
+            <div class="form-partner__field-container">
+              <input class="form-partner__input text-input" type="email" name="email" id="email" placeholder="Email" pattern="^([a-z0-9._-]+@[a-z0-9-]+\.[a-z]+)$" aria-label="email" required>
+              <span class="form-partner__error" id="email-error" aria-live="polite"></span>
+            </div>
+            <div class="form-partner__field-container">
+              <textarea class="form-partner__input form-partner__input--textarea text-input" name="description" id="description" placeholder="Brief company description (years in business, eLearning experience, and why you want to be an iSpring partner)" pattern=".*\S+.*" required></textarea>
+              <span class="form-partner__error" id="description-error" aria-live="polite" aria-label="description"></span>
+            </div>
             <p class="text box-input__text">By clicking "Become a Partner", you confirm that you're agreeing to our <a class="text-link_black" href="#">Terms</a> and <a class="text-link_black" href="#">Privacy Policy</a>.</p>
-            <button class="box-input__button button button--second" id="button_partner" type="submit">Become a Partner</button>
+            <button class="form-partner__button button button--second" id="button-partner" type="submit">Become a Partner</button>
+            <span class="form-partner__empty-error" id="empty-error" aria-live="assertive"></span>
           </form>
         </div>
         <div class="box-input__result visually-hidden"></div>

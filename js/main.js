@@ -1,109 +1,47 @@
-const all_symbols = /.*\S+./;
-const email_pattern = /^([a-z0-9._-]+@[a-z0-9-]+\.[a-z]+)$/;
-const company_name = {
-  id: '#company_name',
-  pattern: all_symbols,
-  type: 'input_text',
-};
-const phone = {
-  id: '#phone',
-  pattern: all_symbols,
-  type: 'input_text',
-};
-const email = {
-  id: '#email',
-  pattern: email_pattern,
-  type: 'input_text',
-};
-const description = {
-  id: '#description',
-  pattern: all_symbols,
-  type: 'text_area',
-};
-const input = [company_name, phone, email, description];
+// import {initSlider, initMenu, setValidation} from './utils';
 
-$(document).ready(function () {
-  for (let i = 0; i < input.length; i++) {
-    $(input[i].id).on('input', function () {
-      if (input[i].pattern.test($(input[i].id).val())) {
-        $(input[i].id).removeClass('input-field_error');
-      } else {
-        $(input[i].id).addClass('input-field_error');
-      }
-    });
-  }
+initSlider();
+initMenu();
+setValidation();
 
-  $('.slider__list').slick({
-    infinite: true,
-    arrows: true,
-    dots: true,
-    slidesToShow: 1,
-    speed: 800,
-    centerMode: true,
-    variableWidth: true,
-    appendArrows: $('.slider__arrows'),
-    appendDots: $('.slider__dots'),
-    responsive: [
-      {
-        breakpoint: 100,
-        settings: {
-          centerMode: false,
-          variableWidth: false,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          centerMode: true,
-          variableWidth: false,
-        }
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          centerMode: true,
-          variableWidth: true,
-        }
-      },
-    ]
-  });
+const RequestText = {
+  successful: 'Thank You! Your company information has been sent successfully.',
+  error: 'Error! Information not added',
+}
 
-  $('.header__menu-collapse').click(function () {
-    $('.header__menu-collapse').toggleClass('open-menu');
-    $('.header__nav').toggleClass('open-menu');
-    $('body').toggleClass('fixed-page');
-  });
+const buttonPartner = document.querySelector('#button_partner');
 
-});
+async function onButtonPartnerSubmit (event) {
+  event.preventDefault();
 
-const getUsers = async (company_name, phone, email, description) => {
-  let text_result = '';
-  try {
-    let response = await fetch(
-      `ajax.php?company_name=${company_name}&phone=${phone}&email=${email}&description=${description}`
-    );
-    if (response.ok) {
-      text_result += `<p>Thank You! Your company information has been sent successfully.</p>`;
-      text_result += `<p><a class="text-link" href="table.php?email=${email}">View the list of your requests</a></p>`;
+  const result = await sendPartnerData();
+  const boxInputWrapper = document.querySelector('.box-input-wrapper');
+  const boxInputResult = document.querySelector('.box-input__result');
+  boxInputWrapper.classList.add('visually-hidden');
+  boxInputResult.classList.remove('visually-hidden');
 
-      $('#company_name').addClass('input-field_error').val('');
-      $('#phone').addClass('input-field_error').val('');
-      $('#email').addClass('input-field_error').val('');
-      $('#description').addClass('input-field_error').val('');
-      $('#send-data-partner').attr('disabled', 'disabled');
-    }
-  } catch (error) {
-    console.log(error);
-    text_result = '<p>Error! Information not added</p>';
-  }
-  $('.box-input-wrapper').html(text_result);
-};
+  boxInputResult.innerText = result === true ? RequestText.successful : RequestText.error;
+  console.log(result);
+}
 
-document.querySelector('.send-data-partner').onsubmit = function (evt) {
-  evt.preventDefault();
-  const company_name = document.querySelector('#company_name').value;
-  const phone = document.querySelector('#phone').value;
-  const email = document.querySelector('#email').value;
-  const description = document.querySelector('#description').value;
-  getUsers(company_name, phone, email, description);
-};
+buttonPartner.addEventListener('click', onButtonPartnerSubmit);
+
+
+/**
+ * отправить данные на сервер
+ * @return {Promise<*>}
+ */
+async function sendPartnerData(){
+  const companyName = document.querySelector('#company_name');
+  const phone = document.querySelector('#phone');
+  const email = document.querySelector('#email');
+  const description = document.querySelector('#description');
+
+  const data = new URLSearchParams();
+  data.append('company_name', companyName.value);
+  data.append('phone', phone.value);
+  data.append('email', email.value);
+  data.append('description', description.value);
+
+  return await loadData({ url: 'php/main.php', method: 'POST', body: data });
+}

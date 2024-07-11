@@ -1,42 +1,39 @@
 <?php
-
-function Clean($value, $pattern = null, $length = 0)
+/**
+ * Подключение к серверу
+ * @return mysqli
+ */
+function connectToServer()
 {
-    if (isset($string)) {
-        $string = trim($string); //удаление пробелов в начале и конце
-        $string = stripslashes($string); //удаление экранированных символов
-        $string = strip_tags($string); //удаление html и php тегов
-        $string = htmlspecialchars($string); //преобразование специальных символов в HTML-сущности
-        $value = preg_replace('/[^a-zа-яё0-9-.,!@#$%^&*()№?+~_=;:}{«»\n\t\s]/ui', '', $value);//Список допустимых символов
-        if ($length) {
-            $string_length = iconv_strlen($string, "UTF-8");
-            if ($string_length > $length) {
-                $string = iconv_substr($string, 0, $length, "UTF-8") . $end;
-            }
+    $config = require 'config.php';
+    $connect = new mysqli($config['host'], $config['user'], $config['password'], $config['database']);
 
-            $string = CutString($string, $length, false);//отрезать строку
-        }
+    if ($connect->connect_error) {
+        die('Ошибка соединения с БД: ' . $connect->connect_error);
     }
-    return $value;
-}
-
-function ConnectToServer()
-{
-    $connect = mysqli_connect("localhost", "root", "", "TestDb");
-
-    if (!$connect) {
-        echo "Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error();
-        exit;
-    }
-    mysqli_set_charset($connect, "utf8");
 
     return $connect;
 }
 
-function Alert($text)
+/**
+ * Очистка от запрещённых символов
+ * @param string $text
+ * @param int $length
+ * @return string|null
+ */
+function clean($text, $length)
 {
-    $OUTPUT = "<meta charset='UTF-8' />\n";
-    $OUTPUT .= "<script>alert('$text');</script>";
-    return $OUTPUT;
-}
+    if (isset($text)) {
+        $text = trim($text); //удаление пробелов в начале и конце
+        $text = stripslashes($text); //удаление экранированных символов
+        $text = strip_tags($text); //удаление html и php тегов
+        $text = htmlspecialchars($text); //преобразование специальных символов в HTML-сущности
+        $text = preg_replace('/[^a-zа-яё0-9-.,!@#$%^&*()№?+~_=;:}{«»\n\t\s]/ui', '', $text);
 
+        $string_length = iconv_strlen($text, 'UTF-8');
+
+        return $string_length > $length ? iconv_substr($text, 0, $length, 'UTF-8') : $text;
+    }
+
+    return null;
+}

@@ -64,17 +64,22 @@ function initSlider() {
  *
  */
 function initMenu() {
-  const menuCollapse = document.querySelector('.header__menu-collapse');
+  const page = document.querySelector('.page');
+  const header = document.querySelector('.header');
+  header.classList.remove('header--nojs');
 
-  const onMenuCollapseClick = () => {
-    const body = document.querySelector('.page__body');
-    const nav = document.querySelector('.header__nav');
-    menuCollapse.classList.toggle('open-menu');
-    body.classList.toggle('fixed-page');
-    nav.classList.toggle('open-menu');
+  const nav = document.querySelector('.nav');
+  const navToggle = header.querySelector('.header__toggle-nav');
+
+  const onNavToggleClick = (event) => {
+    const isClosed = nav.classList.toggle('nav--closed');
+    page.classList.toggle('page--scroll-lock')
+    nav.classList.toggle('nav--opened');
+    event.currentTarget.classList.toggle('header__toggle-nav--active');
+    navToggle.setAttribute('aria-label', isClosed ? 'Открыть меню' : 'Закрыть меню');
   }
 
-  menuCollapse.addEventListener('click', onMenuCollapseClick);
+  navToggle.addEventListener('click', onNavToggleClick);
 }
 
 /**
@@ -87,15 +92,11 @@ function setValidation() {
 
   const form = document.querySelector('.form-partner');
   const inputList = Array.from(form.querySelectorAll('.form-partner__input'));
-  const buttonElement = form.querySelector('.form-partner__button');
   const formErrorElement = form.querySelector('.form-partner__empty-error');
-
-  toggleButton();
 
   startValidation();
 
   function startValidation() {
-    toggleButton();
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (hasInvalidInput()) {
@@ -109,7 +110,6 @@ function setValidation() {
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         checkInputValidity(inputElement);
-        toggleButton();
       })
       inputElement.addEventListener('blur', () => {
         toggleInputError(inputElement);
@@ -151,7 +151,7 @@ function setValidation() {
     }
   }
 
-  function toggleErrorSpan(inputElement, errorMessage){
+  function toggleErrorSpan(inputElement, errorMessage) {
     const errorElement = document.querySelector(`#${inputElement.id}-error`)
     if (errorMessage) {
       inputElement.classList.add('form-partner__input--error');
@@ -161,17 +161,6 @@ function setValidation() {
       inputElement.classList.remove('form-partner__input--error');
       errorElement.textContent = '';
       errorElement.classList.remove('form-partner__error--active');
-    }
-  }
-
-  function toggleButton() {
-    if (hasInvalidInput()) {
-      buttonElement.disabled = true;
-      // buttonElement.setAttribute('aria-disabled', 'true');
-    } else {
-      buttonElement.disabled = false;
-      // buttonElement.setAttribute('aria-disabled', 'false');
-      formErrorElement.textContent = '';
     }
   }
 

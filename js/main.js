@@ -13,20 +13,15 @@ const formPartner = document.querySelector('.form-partner');
 
 async function onButtonPartnerSubmit (event) {
   event.preventDefault();
-
   const result = await sendPartnerData();
-  const boxInputWrapper = document.querySelector('.box-input-wrapper');
-  const boxInputResult = document.querySelector('.box-input__result');
+  const boxInputWrapper = document.querySelector('.yourself__main-inner');
+  const boxInputResult = document.querySelector('.yourself__main-result');
   boxInputWrapper.classList.add('visually-hidden');
   boxInputResult.classList.remove('visually-hidden');
-
   boxInputResult.innerText = result === true ? RequestText.successful : RequestText.error;
-  console.log(result);
-  console.log('result');
 }
 
 formPartner.addEventListener('submit', onButtonPartnerSubmit);
-
 
 /**
  * отправить данные на сервер

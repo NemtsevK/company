@@ -12,43 +12,49 @@
   <link rel="preload" href="fonts/EuclidCircularB-Regular.woff2" type="font/woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/EuclidCircularB-SemiBold.woff2" type="font/woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/slider.css">
 </head>
 <body class="page__body">
-<header class="header">
+<header class="header header--nojs">
   <div class="header__container container">
     <div class="header__inner">
-      <div class="header__menu-collapse"><span></span></div>
+      <button class="header__toggle-nav" type="button" aria-label="Открыть меню">
+        <span class="header__toggle-nav-inner"></span>
+      </button>
       <div class="header__logo">
         <a class="header__logo-link" href="index.html" aria-label="Главная страница">
           <img class="header__logo-image" src="images/brand/logo.svg" width="120" height="30" alt="Логотип iSpring">
         </a>
       </div>
-      <ul class="header__nav nav">
-        <li class="nav__item ">
-          <div class="nav__item-list">Products</div>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Pricing</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Support</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Customers</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="companies.html">Company</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">Blog</a>
-        </li>
-      </ul>
-      <div class="header__service-block service-block">
-        <div class="service-block__item language-bo ">EN</div>
-        <a class="service-block__item shopping-link" href="#"></a>
-        <a class="service-block__item search-link" href="#"></a>
-        <a class="service-block__item auth-link" href="#">Log in</a>
+      <nav class="header__nav nav nav--closed">
+        <div class="nav__inner">
+          <ul class="nav__list">
+            <li class="nav__item ">
+              <div class="nav__item-list">Products</div>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Pricing</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Support</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Customers</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="companies.html">Company</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header__service service">
+        <div class="service__item service__item--language">EN</div>
+        <a class="service__item service__item--shopping" href="#"></a>
+        <a class="service__item service__item--search" href="#"></a>
+        <a class="service__item service__item--auth" href="#">Log in</a>
       </div>
     </div>
   </div>
@@ -57,15 +63,15 @@
   <section class="main__partner-program partner-program">
     <div class="partner-program__container container">
       <div class="partner-program__inner">
-        <div class="partner-program__box partner-program__box_left">
-          <p class="text_medium partner-program__text-top">Partner Program</p>
-          <h1 class="title-first-level partner-program__title">Grow your revenue with iSpring</h1>
-          <p class="text_big partner-program__text">Offer your customers award-winning software for eLearning authoring and training management.</p>
+        <div class="partner-program__content">
+          <p class="partner-program__category">Partner Program</p>
+          <h1 class="partner-program__title title-h1">Grow your revenue with iSpring</h1>
+          <p class="partner-program__text text-big">Offer your customers award-winning software for eLearning authoring and training management.</p>
           <a class="button partner-program__button button" href="#become-partner">Become a Partner</a>
         </div>
-        <div class="partner-program__box partner-program__box_right">
-          <picture class="partner-program__img-container">
-            <img class="partner-program__img" src="images/content/partner.png" alt="Partners">
+        <div class="partner-program__picture">
+          <picture>
+            <img class="partner-program__image" src="images/content/partner.png" alt="Partners">
           </picture>
         </div>
       </div>
@@ -74,57 +80,56 @@
   <section class="main__join-team join-team">
     <div class="container">
       <div class="join-team__inner">
-        <div class="join-team__box join-team__box_left">
-          <h2 class="title-second-level join-team__title">Join the team of&nbsp;eLearning enthusiasts</h2>
-          <p class="text join-team__text">Tap into the rapidly growing eLearning market with the industry leader in course authoring and learning management — iSpring.</p>
-          <div class="company-list join-team__company-list">
-            <img class="company-list__image" src="images/content/amazon.svg" alt="amazon">
-            <img class="company-list__image" src="images/content/visa.svg" alt="visa">
-            <img class="company-list__image" src="images/content/dell.svg" alt="dell">
-            <img class="company-list__image" src="images/content/google.svg" alt="google">
-            <img class="company-list__image" src="images/content/microsoft.svg" alt="microsoft">
-            <img class="company-list__image" src="images/content/nike.svg" alt="nike">
-            <img class="company-list__image" src="images/content/starbaks.svg" alt="starbaks">
-            <img class="company-list__image" src="images/content/booking.svg" alt="booking">
+        <div class="join-team__content">
+          <h2 class="join-team__title title-h2">Join the team of&nbsp;eLearning enthusiasts</h2>
+          <p class="join-team__text text">Tap into the rapidly growing eLearning market with the industry leader in course authoring and learning management — iSpring.</p>
+          <div class="join-team__company-list">
+            <img class="join-team__company-image" src="images/content/amazon.svg" alt="amazon">
+            <img class="join-team__company-image" src="images/content/visa.svg" alt="visa">
+            <img class="join-team__company-image" src="images/content/dell.svg" alt="dell">
+            <img class="join-team__company-image" src="images/content/google.svg" alt="google">
+            <img class="join-team__company-image" src="images/content/microsoft.svg" alt="microsoft">
+            <img class="join-team__company-image" src="images/content/nike.svg" alt="nike">
+            <img class="join-team__company-image" src="images/content/starbaks.svg" alt="starbaks">
+            <img class="join-team__company-image" src="images/content/booking.svg" alt="booking">
           </div>
         </div>
-        <div class="join-team__box join-team__box_right">
-          <div class="info join-team__info join-team__info_grey">
-            <h2 class="info__title">198 clients</h2>
-            <p class="text info__text">from Fortune 500 companies</p>
+        <div class="join-team__content">
+          <div class="join-team__info join-team__info--clients">
+            <h2 class="join-team__info-title">198 clients</h2>
+            <p class="join-team__info-text text">from Fortune 500 companies</p>
           </div>
-          <div class="info join-team__info join-team__info_yellow">
-            <h2 class="info__title">20 years</h2>
-            <p class="text info__text">on the market</p>
+          <div class="join-team__info join-team__info--years">
+            <h2 class="join-team__info-title">20 years</h2>
+            <p class="join-team__info-text text">on the market</p>
           </div>
-          <div class="info join-team__info join-team__info_blue">
-            <h2 class="info__title">59,000 customers</h2>
-            <p class="text info__text">from 172 countries</p>
+          <div class="join-team__info join-team__info--customers">
+            <h2 class="join-team__info-title">59,000 customers</h2>
+            <p class="join-team__info-text text">from 172 countries</p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
   <section class="main__benefits benefits">
     <div class="container">
       <div class="benefits__inner">
-        <h2 class="benefits__header title-second-level">Benefits of partnering with iSpring</h2>
+        <h2 class="benefits__header title-h2">Benefits of partnering with iSpring</h2>
         <div class="benefits__main">
-          <div class="benefits__box">
-            <h3 class="title-third-level benefits__title benefits__title_first">Recurring revenue and bonuses</h3>
-            <p class="text benefits__text">Get profit from initial sales, as well as recurring revenue from subscription upgrades and license extensions and renewals.</p>
+          <div class="benefits__content">
+            <h3 class="benefits__title benefits__title--recurring title-h3">Recurring revenue and bonuses</h3>
+            <p class="benefits__text text">Get profit from initial sales, as well as recurring revenue from subscription upgrades and license extensions and renewals.</p>
           </div>
-          <div class="benefits__box">
-            <h3 class="title-third-level benefits__title benefits__title_second">24/7 customer support</h3>
-            <p class="text benefits__text">We take care of post-sale customer support so you can focus on your business. Our support engineers are always ready to help.</p>
+          <div class="benefits__content">
+            <h3 class="benefits__title benefits__title--customer title-h3">24/7 customer support</h3>
+            <p class="benefits__text text">We take care of post-sale customer support so you can focus on your business. Our support engineers are always ready to help.</p>
           </div>
-          <div class="benefits__box">
-            <h3 class="title-third-level benefits__title benefits__title_third">Expanded product offering</h3>
-            <p class="text benefits__text">iSpring’s software can open a door to new business opportunities, enabling you to cover a wider range of client needs.</p>
+          <div class="benefits__content">
+            <h3 class="benefits__title benefits__title--expanded title-h3">Expanded product offering</h3>
+            <p class="benefits__text text">iSpring’s software can open a door to new business opportunities, enabling you to cover a wider range of client needs.</p>
           </div>
         </div>
-        <div class="benefits__area-button">
+        <div class="benefits__area-buttons">
           <a class="area-button__button button button--second" href="#become-partner">Become a Partner</a>
         </div>
       </div>
@@ -133,70 +138,52 @@
   <section class="main__jump-start jump-start">
     <div class="jump-start__container container">
       <div class="jump-start__inner">
-        <div class="jump-start__box-left">
-          <div class="jump-start__box-left_inner">
-            <h2 class="title-second-level jump-start__main-title">Jump-start your business growth with iSpring</h2>
-            <p class="text jump-start__main-text">Whether you are an eLearning consultant, VAR, software reseller, distributor, or tenderer, you can take advantage of the iSpring Partner Program and start increasing your revenue today.</p>
+        <div class="jump-start__content">
+          <h2 class="jump-start__main-title title-h2">Jump-start your business growth with iSpring</h2>
+          <p class="jump-start__main-text text">Whether you are an eLearning consultant, VAR, software reseller, distributor, or tenderer, you can take advantage of the iSpring Partner Program and start increasing your revenue today.</p>
+        </div>
+        <div class="jump-start__list">
+          <div class="jump-start__item">
+            <h3 class="jump-start__item-title title-h3">Sign up as a partner</h3>
+            <div class="jump-start__item-number jump-start__item-number--first">01</div>
+            <p class="jump-start__item-text text">Fill in the Partner Program form to join our partner network. We will contact you shortly with all the details and reseller account information.</p>
+            <div class="jump-start__item-dots"></div>
+          </div>
+          <div class="jump-start__item">
+            <h3 class="jump-start__item-title title-h3">Get welcome training</h3>
+            <div class="jump-start__item-number jump-start__item-number--second">02</div>
+            <p class="jump-start__item-text text">In just 2 webinars, you and your employees will master the key features of iSpring software and learn how to use your reseller account in the most effective way.</p>
+            <div class="jump-start__item-dots"></div>
+          </div>
+          <div class="jump-start__item">
+            <h3 class="jump-start__item-title title-h3">Close your first deal</h3>
+            <div class="jump-start__item-number jump-start__item-number--third">03</div>
+            <p class="jump-start__item-text text">Selling iSpring software is easy because it is both powerful and user-friendly.</p>
           </div>
         </div>
-        <div class="jump-start__box-right">
-          <div class="jump-start-box__number-box-wrapper">
-            <div class="jump-start-box__number-box number-box_white"><span>01</span></div>
-            <div class="jump-start-box__dot-list">
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-            </div>
-          </div>
-          <div class="jump-start-box__content-box">
-            <h3 class="title-third-level content-box__title">Sign up as a partner</h3>
-            <p class="text content-box__text">Fill in the Partner Program form to join our partner network. We will contact you shortly with all the details and reseller account information.</p>
-          </div>
-          <div class="jump-start-box__number-box-wrapper">
-            <div class="jump-start-box__number-box number-box_orange"><span>02</span></div>
-            <div class="jump-start-box__dot-list">
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-              <div class="dot-list__item"></div>
-            </div>
-          </div>
-          <div class="jump-start-box__content-box">
-            <h3 class="title-third-level content-box__title">Get welcome training</h3>
-            <p class="text content-box__text">In just 2 webinars, you and your employees will master the key features of iSpring software and learn how to use your reseller account in the most effective way.</p>
-          </div>
-          <div class="jump-start-box__number-box-wrapper">
-            <div class="jump-start-box__number-box number-box_blue"><span>03</span></div>
-          </div>
-          <div class="jump-start-box__content-box">
-            <h3 class="title-third-level jcontent-box__title">Close your first deal</h3>
-            <p class="text content-box__text">Selling iSpring software is easy because it is both powerful and user-friendly.</p>
-          </div>
-        </div>
-        <div class="jump-start__box-btn">
-          <a class="button jump-start__button button" href="#become-partner">Become a Partner</a>
+        <div class="jump-start__area-buttons">
+          <a class="jump-start__button button" href="#become-partner">Become a Partner</a>
         </div>
       </div>
     </div>
   </section>
   <section class="main__promote promote">
     <div class="container">
-      <div class="promote__inner">
-        <div class="promote__box promote__box_main block_blue">
-          <h2 class="title-second-level promote__main-title">Promote iSpring software easily</h2>
+      <div class="promote__list">
+        <div class="promote__main">
+          <h2 class="promote__main-title title-h2">Promote iSpring software easily</h2>
         </div>
-        <div class="promote__box block_beige">
-          <h3 class="title-third-level promote__title promote__title_first">Free demo licenses</h3>
-          <p class="text promote__text">You will get free NFR licenses for all iSpring desktop products and a free iSpring Learn LMS account. These resources will be a&nbsp;useful aid in negotiations with your prospective clients.</p>
+        <div class="promote__item">
+          <h3 class="promote__title promote__title--demo title-h3">Free demo licenses</h3>
+          <p class="promote__text text">You will get free NFR licenses for all iSpring desktop products and a free iSpring Learn LMS account. These resources will be a&nbsp;useful aid in negotiations with your prospective clients.</p>
         </div>
-        <div class="promote__box block_beige">
-          <h3 class="title-third-level promote__title promote__title_second">Marketing aids</h3>
-          <p class="text promote__text">We support our partners at all stages of the&nbsp;sales process: from lead generation to closing and follow-up. We also provide ready-made marketing aids: guidelines, presentations, sales proposals, etc.</p>
+        <div class="promote__item">
+          <h3 class="promote__title promote__title--aids title-h3">Marketing aids</h3>
+          <p class="promote__text text">We support our partners at all stages of the&nbsp;sales process: from lead generation to closing and follow-up. We also provide ready-made marketing aids: guidelines, presentations, sales proposals, etc.</p>
         </div>
-        <div class="promote__box block_beige">
-          <h3 class="title-third-level promote__title promote__title_third">Co-marketing activities</h3>
-          <p class="text promote__text">We are always here to help you grow the market and expand your customer base. Our marketing specialists gladly take part in partners’ promotional activities, like workshops and conferences.</p>
+        <div class="promote__item">
+          <h3 class="promote__title promote__title--activities title-h3">Co-marketing activities</h3>
+          <p class="promote__text text">We are always here to help you grow the market and expand your customer base. Our marketing specialists gladly take part in partners’ promotional activities, like workshops and conferences.</p>
         </div>
       </div>
     </div>
@@ -204,17 +191,17 @@
   <section class="main__manage manage">
     <div class="container">
       <div class="manage__inner">
-        <div class="manage__box manage__box_img">
-          <picture class="manage__img-container">
+        <div class="manage__picture">
+          <picture>
             <source srcset="images/content/demo_medium.png" media="(min-width: 768px)">
-            <img class="manage__img" src="images/content/demo_small.png" alt="demo">
+            <img class="manage__image" src="images/content/demo_small.png" alt="demo">
           </picture>
         </div>
-        <div class="manage__box manage__box_text">
-          <h2 class="title-second-level manage__title">Manage all your sales online</h2>
-          <p class="text manage__text">All partners get access to iSpring’s reseller portal. There you can process orders and license delivery, download license certificates and receipts, and view sales history with ease.</p>
+        <div class="manage__content">
+          <h2 class="manage__title title-h2">Manage all your sales online</h2>
+          <p class="manage__text text">All partners get access to iSpring’s reseller portal. There you can process orders and license delivery, download license certificates and receipts, and view sales history with ease.</p>
         </div>
-        <div class="manage__box manage__box_btn">
+        <div class="manage__area-buttons">
           <a class="manage__button button button--second" href="#become-partner">Become a Partner</a>
         </div>
       </div>
@@ -223,54 +210,54 @@
   <section class="main__products-available products-available">
     <div class="container">
       <div class="products-available__inner">
-        <h2 class="title-second-level products-available__title">Products available in 17 languages</h2>
-        <p class="text products-available__text">iSpring software and services support a variety of languages to provide exceptional user experience to users from different countries. New languages are being covered on a regular basis.</p>
-        <ul class="language-block products-available__language-block">
-          <li class="language-block__item">English</li>
-          <li class="language-block__item">Spanish</li>
-          <li class="language-block__item">French</li>
-          <li class="language-block__item">German</li>
-          <li class="language-block__item">Italian</li>
-          <li class="language-block__item">Japanese</li>
-          <li class="language-block__item">Portuguese</li>
-          <li class="language-block__item">Russian</li>
-          <li class="language-block__item">Polish</li>
-          <li class="language-block__item">Uzbek</li>
-          <li class="language-block__item">Chinese Simplified</li>
-          <li class="language-block__item">Chinese Traditional</li>
-          <li class="language-block__item">Mongolian</li>
-          <li class="language-block__item">Norwegian</li>
-          <li class="language-block__item">Ukrainian</li>
-          <li class="language-block__item">Indonesian</li>
-          <li class="language-block__item">Finnish</li>
-          <li class="language-block__item">Azerbaijani</li>
+        <h2 class="products-available__title title-h2">Products available in 17 languages</h2>
+        <p class="products-available__text text">iSpring software and services support a variety of languages to provide exceptional user experience to users from different countries. New languages are being covered on a regular basis.</p>
+        <ul class="products-available__languages">
+          <li class="products-available__languages-item">English</li>
+          <li class="products-available__languages-item">Spanish</li>
+          <li class="products-available__languages-item">French</li>
+          <li class="products-available__languages-item">German</li>
+          <li class="products-available__languages-item">Italian</li>
+          <li class="products-available__languages-item">Japanese</li>
+          <li class="products-available__languages-item">Portuguese</li>
+          <li class="products-available__languages-item">Russian</li>
+          <li class="products-available__languages-item">Polish</li>
+          <li class="products-available__languages-item">Uzbek</li>
+          <li class="products-available__languages-item">Chinese Simplified</li>
+          <li class="products-available__languages-item">Chinese Traditional</li>
+          <li class="products-available__languages-item">Mongolian</li>
+          <li class="products-available__languages-item">Norwegian</li>
+          <li class="products-available__languages-item">Ukrainian</li>
+          <li class="products-available__languages-item">Indonesian</li>
+          <li class="products-available__languages-item">Finnish</li>
+          <li class="products-available__languages-item">Azerbaijani</li>
         </ul>
       </div>
 
     </div>
   </section>
   <section class="main__questions questions">
-    <div class="container">
+    <div class="questions__container container">
       <div class="questions__inner">
-        <div class="questions__box">
-          <h2 class="title-second-level questions__title">Have questions? Reach out!</h2>
+        <div class="questions__content">
+          <h2 class="questions__title title-h2">Have questions? Reach out!</h2>
         </div>
-        <div class="questions__box">
+        <div class="questions__content">
           <p class="questions__text text">We provide our partners with fast tech and sales assistance, including pre-sales and sales support.</p>
-          <p class="questions__text text">Contact us any time at <a class="text-link_white" href="maito:partner@ispring.com">partner@ispring.com</a>.</p>
+          <p class="questions__text text">Contact us any time at <a class="text-link" href="maito:partner@ispring.com">partner@ispring.com</a>.</p>
         </div>
       </div>
     </div>
   </section>
   <section class="main__companies-benefit companies-benefit">
     <div class="companies-benefit__inner">
-      <h2 class="companies-benefit__title title-second-level">See how companies benefit from partnering with iSpring</h2>
+      <h2 class="companies-benefit__title title-h2">See how companies benefit from partnering with iSpring</h2>
       <div class="companies-benefit__slider slider">
         <div class="slider__inner">
           <div class="slider__list">
             <div class="slider__item">
-              <div class="slider__box">
-                <h3 class="slider__title title-third-level">Our income from partnering with iSpring has been increasing every year!</h3>
+              <div class="slider__content">
+                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
                 <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
                 <div class="slider__person">
                   <img class="slider__person-image" src="images/content/person_avatar_1.png" alt="person">
@@ -280,8 +267,8 @@
               </div>
             </div>
             <div class="slider__item">
-              <div class="slider__box">
-                <h3 class="slider__title title-third-level">Our income from partnering with iSpring has been increasing every year!</h3>
+              <div class="slider__content">
+                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
                 <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
                 <div class="slider__person">
                   <img class="slider__person-image" src="images/content/person_avatar_2.png" alt="person">
@@ -291,8 +278,8 @@
               </div>
             </div>
             <div class="slider__item">
-              <div class="slider__box">
-                <h3 class="slider__title title-third-level">Our income from partnering with iSpring has been increasing every year!</h3>
+              <div class="slider__content">
+                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
                 <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling earning management systems, which brings lern.link new business opportunities.</p>
                 <div class="slider__person">
                   <img class="slider__person-image" src="images/content/person_avatar_3.png" alt="person">
@@ -310,13 +297,13 @@
   </section>
   <section class="main__yourself yourself" id="become-partner">
     <div class="yourself__container container">
-      <div class="yourself__box box-text">
-        <h2 class="yourself__main-title title-second-level">Become an iSpring Partner</h2>
-        <p class="text_big yourself__text">Tell us about yourself and your company.</p>
+      <div class="yourself__header">
+        <h2 class="yourself__header-title title-h2">Become an iSpring Partner</h2>
+        <p class="yourself__header-text text-big">Tell us about yourself and your company.</p>
       </div>
-      <div class="yourself__box box-input block_white">
-        <div class="box-input-wrapper">
-          <h3 class="box-input__title">Company Information</h3>
+      <div class="yourself__main">
+        <div class="yourself__main-inner">
+          <h3 class="yourself__main-title">Company Information</h3>
           <form class="form-partner" action="" method="post">
             <div class="form-partner__field-container">
               <input class="form-partner__input text-input" name="company-name" id="company-name" placeholder="Company name" pattern=".*\S+.*" aria-label="Company name" required>
@@ -334,31 +321,52 @@
               <textarea class="form-partner__input form-partner__input--textarea text-input" name="description" id="description" placeholder="Brief company description (years in business, eLearning experience, and why you want to be an iSpring partner)" pattern=".*\S+.*" required></textarea>
               <span class="form-partner__error" id="description-error" aria-live="polite" aria-label="description"></span>
             </div>
-            <p class="text box-input__text">By clicking "Become a Partner", you confirm that you're agreeing to our <a class="text-link_black" href="#">Terms</a> and <a class="text-link_black" href="#">Privacy Policy</a>.</p>
+            <p class="form-partner__text text">By clicking "Become a Partner", you confirm that you're agreeing to our <a class="text-link" href="#">Terms</a> and <a class="text-link" href="#">Privacy Policy</a>.</p>
             <button class="form-partner__button button button--second" id="button-partner" type="submit">Become a Partner</button>
             <span class="form-partner__empty-error" id="empty-error" aria-live="assertive"></span>
           </form>
         </div>
-        <div class="box-input__result visually-hidden"></div>
+        <div class="yourself__main-result visually-hidden"></div>
       </div>
     </div>
   </section>
 </main>
 <footer class="footer">
   <div class="footer__container container">
-    <div class="footer__copyright ">
-      <a class="footer__logo-link" href="#" aria-label="Главная страница">
-        <img class="footer__logo-image" src="images/brand/logo.svg" width="104" height="24" alt="Логотип iSpring">
-      </a>
-      <p class="footer__copyright-text text_small">&copy; 2001-2024 iSpring Solutions Inc. All rights reserved. Terms of Use | Privacy Policy</p>
-    </div>
-    <div class="footer__subscribe">
-      <h4 class="footer__subscribe-title title-fourth-level">Subscribe to our newsletters</h4>
-      <p class="footer__subscribe-text text_small">By clicking “Subscribe”, you agree to our Privacy Policy. All emails include an unsubscribe link, so you can opt-out at any time.</p>
-      <form class="footer__form form-subscribe">
-        <input class="form-subscribe__input text-input" type="email" name="email_for_news" placeholder="Email" required>
-        <button class="form-subscribe__button button button--second" id="button_subscribe" type="button">Subscribe</button>
-      </form>
+    <div class="footer__inner">
+      <div class="footer__copyright ">
+        <a class="footer__logo-link" href="#" aria-label="Главная страница">
+          <img class="footer__logo-image" src="images/brand/logo.svg" width="104" height="24" alt="Логотип iSpring">
+        </a>
+        <p class="footer__copyright-text text-small">&copy; 2001-2024 iSpring Solutions Inc. All rights reserved. Terms of Use | Privacy Policy</p>
+      </div>
+      <div class="footer__social social">
+        <ul class="social__list">
+          <li class="social__item">
+            <a class="social__link social__link--vk" href="https://vk.com" target="_blank" aria-label="Наша группа ВКонтакте" title="Наша группа ВКонтакте"></a>
+          </li>
+          <li class="social__item">
+            <a class="social__link social__link--youtube" href="https://www.youtube.com" aria-label="Наш канал в YouTube" title="Наш канал в YouTube" target="_blank" rel="nofollow noopener"></a>
+          </li>
+          <li class="social__item">
+            <a class="social__link social__link--telegram" href="https://t.me" aria-label="Наш канал в Телеграм" title="Наш канал в Телеграм" target="_blank" rel="nofollow noopener"></a>
+          </li>
+          <li class="social__item">
+            <a class="social__link social__link--github" href="https://github.com/NemtsevK/company" aria-label="Исходный код в GitHub" title="Исходный код в GitHub" target="_blank" rel="nofollow noopener"></a>
+          </li>
+          <li class="social__item">
+            <a class="social__link social__link--developer" href="http://nemtsevk.ru" aria-label="Разработано Nemtsev K" title="Разработано Nemtsev K" target="_blank" rel="nofollow noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__subscribe">
+        <h4 class="footer__subscribe-title title-h4">Subscribe to our newsletters</h4>
+        <p class="footer__subscribe-text text-small">By clicking “Subscribe”, you agree to our Privacy Policy. All emails include an unsubscribe link, so you can opt-out at any time.</p>
+        <form class="footer__form form-subscribe">
+          <input class="form-subscribe__input text-input" type="email" name="email_for_news" placeholder="Email" required>
+          <button class="form-subscribe__button button button--second" id="button_subscribe" type="button">Subscribe</button>
+        </form>
+      </div>
     </div>
   </div>
 </footer>

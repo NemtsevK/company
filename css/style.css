@@ -19,13 +19,58 @@
   src: url("../fonts/EuclidCircularB-SemiBold.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Montserrat-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Roboto-Medium.woff2") format("woff2");
+}
+
 :root {
   --background-primary: #ffffff;
   --background-secondary: #3d50f9;
   --background-special: #2c3442;
+  --background-acent: #ff7449;
+  --background-other: #fff3e1;
   --text-primary: #000000;
   --text-secondary: #ffffff;
   --text-special: #2c3442;
+  --button-primary: #ffc960;
 }
 
 *,
@@ -133,7 +178,7 @@
   text-align: center;
   color: var(--text-primary);
   border-radius: 100px;
-  background-color: #ffc960;
+  background-color: var(--button-primary);
 }
 
 .button:hover {
@@ -142,7 +187,7 @@
 }
 
 .button:active {
-  background-color: #ffc960;
+  background-color: var(--button-primary);
 }
 
 .button--second {
@@ -156,14 +201,6 @@
 
 .button--second:active {
   background-color: var(--background-secondary);
-}
-
-.button--second[disabled],
-.button--second:hover[disabled],
-.button--second:active[disabled] {
-  cursor: default;
-  background-color: var(--background-secondary);
-  opacity: 0.5;
 }
 
 .text-input {
@@ -401,7 +438,7 @@
 .partner-program__inner {
   display: grid;
   grid-template-columns: 500px 493px;
-  column-gap: 15px;
+  column-gap: 20px;
   align-items: center;
   padding: 66px 99px;
   color: var(--text-secondary);
@@ -421,6 +458,71 @@
 
 .partner-program__button {
   margin-top: 55px;
+}
+
+.partner-program__picture-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 456px;
+  height: 456px;
+}
+
+.partner-program__picture {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.partner-program__picture::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-special);
+  mask-image: url("../images/sprite.svg#octagon");
+  background-image: url("../images/content/partners.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.partner-program__picture-inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.partner-program__picture-inner::before,
+.partner-program__picture-inner::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.partner-program__picture-inner::before {
+  top: 70%;
+  left: -10%;
+  width: 90px;
+  height: 90px;
+  background-image: url("../images/icons/diagram.svg");
+  transform: rotate(11deg);
+}
+
+.partner-program__picture-inner::after {
+  top: 10%;
+  left: 90%;
+  width: 70px;
+  height: 70px;
+  background-image: url("../images/icons/handshake.svg");
+  transform: rotate(-20deg);
 }
 
 .partner-program__image {
@@ -487,7 +589,7 @@
 }
 
 .join-team__info--years {
-  background-color: #ff7449;
+  background-color: var(--background-acent);
   width: 295px;
   padding: 27px 58px 27px 57px;
   margin: -23px 0 -26px 145px;
@@ -531,7 +633,7 @@
 }
 
 .benefits__content {
-  background-color: #fff3e1;
+  background-color: var(--background-other);
   border-radius: 30px;
   padding: 39px 44px 50px 40px;
 }
@@ -630,22 +732,23 @@
   font-weight: 500;
   font-size: 22px;
   line-height: 26px;
+  mask-image: url("../images/sprite.svg#octagon");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .jump-start__item-number--first {
-  background-image: url("../images/icons/octagon_white.svg");
-  color: #2c3442;
+  background-color: var(--background-primary);
+  color: var(--text-special);
 }
 
 .jump-start__item-number--second {
-  background-image: url("../images/icons/octagon_orange.svg");
+  background-color: var(--background-acent);
 }
 
 .jump-start__item-number--third {
-  background-image: url("../images/icons/octagon_blue.svg");
+  background-color: var(--background-secondary);
 }
 
 .jump-start__item-text {
@@ -688,7 +791,7 @@
 
 .promote__item {
   padding: 35px 62px 35px;
-  background-color: #fff3e1;
+  background-color: var(--background-other);
   border-radius: 30px;
 }
 
@@ -783,7 +886,7 @@
 }
 
 .products-available__languages-item {
-  background-color: #fff3e1;
+  background-color: var(--background-other);
   border-radius: 10px;
   padding: 6px 12px;
   list-style: none;
@@ -799,7 +902,7 @@
   height: 10px;
   border-radius: 5px;
   margin-right: 7px;
-  background-color: #ff7449;
+  background-color: var(--background-acent);
 }
 
 .questions__inner {
@@ -874,7 +977,7 @@
   gap: 24px 90px;
   justify-content: center;
   border-radius: 30px;
-  background-color: #fff3e1;
+  background-color: var(--background-other);
   color: var(--text-primary);
 }
 
@@ -923,6 +1026,7 @@
   grid-row: span 2;
   width: 48px;
   height: 48px;
+  border-radius: 50%;
 }
 
 .slider__person-job {
@@ -950,6 +1054,7 @@
 }
 
 .yourself__header {
+  position: relative;
   z-index: 1;
   margin: 75px 0 0 0;
   color: var(--text-secondary);
@@ -957,15 +1062,17 @@
 
 .yourself__header::before {
   content: "";
-  display: inline-block;
   position: absolute;
-  width: 300px;
-  height: 300px;
+  top: -40px;
+  left: -50px;
   z-index: -1;
-  margin: -100px 0 0 -45px;
-  background-image: url("../images/icons/octagon_blue.svg");
-  background-position: 0;
-  background-size: 230px 230px;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: var(--background-secondary);
+  mask-image: url("../images/sprite.svg#octagon");
+  background-position: center;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 
@@ -989,7 +1096,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 14px;
   align-items: center;
-  gap: 2px 0;
+  gap: 6px 0;
 }
 
 .form-partner__input {
@@ -998,7 +1105,6 @@
   height: 44px;
   border: 1px solid #abb0ba;
   border-radius: 4px;
-  margin-top: 5px;
   padding: 0 18px;
 }
 
@@ -1021,21 +1127,27 @@
   padding: 10px 18px;
 }
 
-.form-partner__input--error {
+.form-partner__input--error:not(:focus) {
   border: 1px solid #ff0000;
   background-color: rgba(255, 0, 0, 0.1);
 }
 
-.form-partner__input--error::placeholder {
+.form-partner__input--error:not(:focus)::placeholder {
   color: rgba(255, 0, 0, 0.8);
 }
 
-.form-partner__error {
+.form-partner__text-error {
+  display: none;
+  margin-bottom: 8px;
   font-size: 12px;
   color: #ff0000;
 }
 
-.form-partner__error--active {
+.form-partner__input:focus + .form-partner__text-error--active {
+  display: none;
+}
+
+.form-partner__text-error--active {
   display: block;
 }
 
@@ -1053,12 +1165,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-}
-
-.form-partner__empty-error {
-  padding: 10px 0;
-  font-size: 18px;
-  color: #ff8630;
 }
 
 .footer--second {
@@ -1273,7 +1379,7 @@
 
 .slick-prev {
   left: 0;
-  background-color: #ffffff;
+  background-color: var(--background-primary);
   background-image: url("../images/icons/prev_slide.svg");
   background-position: 17px 14px;
   background-size: 12px 22px;
@@ -1282,7 +1388,7 @@
 
 .slick-next {
   right: 0;
-  background-color: #ffffff;
+  background-color: var(--background-primary);
   background-image: url("../images/icons/next_slide.svg");
   background-position: 22px 14px;
   background-size: 12px 22px;
@@ -1316,7 +1422,7 @@
 }
 
 .slick-dots li.slick-active button {
-  background-color: #3d50f9;
+  background-color: var(--background-secondary);
 }
 
 @media (max-width: 1279px) {
@@ -1406,6 +1512,13 @@
     width: 100%;
   }
 
+  .partner-program__picture-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 456px;
+    max-height: 456px;
+  }
+
   .join-team__inner {
     display: flex;
     flex-flow: column nowrap;
@@ -1435,13 +1548,6 @@
   .join-team__company-list {
     width: 400px;
     margin: 34px auto 0;
-  }
-
-  .join-team__info_yellow {
-    z-index: 1;
-    width: 295px;
-    margin: -23px 0 -26px 145px;
-    background-color: #ff7449;
   }
 
   .benefits__main {
@@ -1828,7 +1934,6 @@
     justify-content: center;
     align-items: center;
     align-self: start;
-    margin-top: 50px;
   }
 
   .partner-program__title,
@@ -1842,7 +1947,7 @@
     align-self: center;
   }
 
-  .partner-program__picture {
+  .partner-program__picture-wrapper {
     display: none;
   }
 
@@ -2038,7 +2143,8 @@
   }
 
   .yourself__header::before {
-    display: none;
+    width: 150px;
+    height: 150px;
   }
 
   .yourself__main {

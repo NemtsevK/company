@@ -1,4 +1,4 @@
-// import {loadData} from './utils';
+import { loadData, initMenu } from './utils.js';
 
 main();
 initMenu();
@@ -30,7 +30,7 @@ function insertCompany(item) {
   const tableRow = document.createElement('tr');
   tableRow.classList.add('table__body-row');
 
-  for(let key in item) {
+  for (let key in item) {
     const tableCell = document.createElement('td');
     tableCell.classList.add('table__body-cell');
     tableCell.innerText = item[key];

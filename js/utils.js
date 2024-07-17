@@ -1,5 +1,7 @@
+import {RequestText} from './const.js'
+
 /**
- *
+ * загрузка данных на сервер и их получение
  * @param url
  * @param method
  * @param body
@@ -21,7 +23,7 @@ async function loadData({
 }
 
 /**
- *
+ * инициализация слайдера
  */
 function initSlider() {
   $('.slider__list').slick({
@@ -61,7 +63,7 @@ function initSlider() {
 }
 
 /**
- *
+ * инициализация меню навигации
  */
 function initMenu() {
   const page = document.querySelector('.page');
@@ -82,92 +84,32 @@ function initMenu() {
   navToggle.addEventListener('click', onNavToggleClick);
 }
 
-/**
- *
- */
-function setValidation() {
-
-  const ALL_SYMBOLS = /.*\S+./;
-  const EMAIL_PATTERN = /^([a-z0-9._-]+@[a-z0-9-]+\.[a-z]+)$/;
-
-  const form = document.querySelector('.form-partner');
-  const inputList = Array.from(form.querySelectorAll('.form-partner__input'));
-  const formErrorElement = form.querySelector('.form-partner__empty-error');
-
-  startValidation();
-
-  function startValidation() {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (hasInvalidInput()) {
-        formError()
-        inputList.forEach((inputElement) => {
-          checkInputValidity(inputElement);
-          toggleInputError(inputElement);
-        })
-      }
-    })
-    inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', () => {
-        checkInputValidity(inputElement);
-      })
-      inputElement.addEventListener('blur', () => {
-        toggleInputError(inputElement);
-      })
-      inputElement.addEventListener('focus', () => {
-        toggleErrorSpan(inputElement);
-      })
-    })
-  }
-
-  function checkInputValidity(inputElement) {
-    if (inputElement.validity.patternMismatch) {
-      inputElement.setCustomValidity(inputElement.dataset.errorMessage);
-    } else {
-      inputElement.setCustomValidity(checkLengthMismatch(inputElement));
-    }
-  }
-
-  function checkLengthMismatch(inputElement) {
-    if (inputElement.type !== 'text') {
-      return ''
-    }
-    const valueLength = inputElement.value.trim().length;
-    if (valueLength < inputElement.minLength) {
-      return `Минимальное количество символов: ${inputElement.minLength}`;
-    }
-    return ''
-  }
-
-  function hasInvalidInput() {
-    return inputList.some(inputElement => !inputElement.validity.valid);
-  }
-
-  function toggleInputError(inputElement) {
-    if (!inputElement.validity.valid) {
-      toggleErrorSpan(inputElement, inputElement.validationMessage);
-    } else {
-      toggleErrorSpan(inputElement);
-    }
-  }
-
-  function toggleErrorSpan(inputElement, errorMessage) {
-    const errorElement = document.querySelector(`#${inputElement.id}-error`)
-    if (errorMessage) {
-      inputElement.classList.add('form-partner__input--error');
-      errorElement.textContent = errorMessage;
-      errorElement.classList.add('form-partner__error--active');
-    } else {
-      inputElement.classList.remove('form-partner__input--error');
-      errorElement.textContent = '';
-      errorElement.classList.remove('form-partner__error--active');
-    }
-  }
-
-  function formError() {
-    formErrorElement.textContent = 'Заполните все поля для отправки формы.';
-  }
+async function setFormSuccess() {
+  const result = await sendPartnerData();
+  const boxInputWrapper = document.querySelector('.yourself__main-inner');
+  const boxInputResult = document.querySelector('.yourself__main-result');
+  boxInputWrapper.classList.add('visually-hidden');
+  boxInputResult.classList.remove('visually-hidden');
+  boxInputResult.innerText = result === true ? RequestText.successful : RequestText.error;
 }
 
+/**
+ * отправить данные на сервер
+ * @return {Promise<*>}
+ */
+async function sendPartnerData() {
+  const companyName = document.querySelector('#company-name');
+  const phone = document.querySelector('#phone');
+  const email = document.querySelector('#email');
+  const description = document.querySelector('#description');
 
-// export { loadData }
+  const data = new URLSearchParams();
+  data.append('company_name', companyName.value);
+  data.append('phone', phone.value);
+  data.append('email', email.value);
+  data.append('description', description.value);
+
+  return await loadData({ url: 'php/main.php', method: 'POST', body: data });
+}
+
+export { loadData, initSlider, initMenu, setFormSuccess }

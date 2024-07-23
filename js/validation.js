@@ -1,22 +1,15 @@
 import { setFormSuccess } from './utils.js';
 import { REGEX, inputsOptions } from './const.js';
 
-const form = document.querySelector('.form-partner');
-const inputsElements = form.querySelectorAll('.form-partner__input');
-const textElements = form.querySelectorAll('.form-partner__text-error');
-
 /**
  * Инициализация валидации
  */
-function initValidation() {
-  const button = form.querySelector('.form-partner__button');
-  const formText = form.querySelector('.form-partner__empty-error');
-
+function initValidation({form, inputsElements, textElements, button}) {
   let enableButton = isEnableButton(inputsElements, inputsOptions)
 
   inputsElements.forEach((inputElement) => {
     const inputOption = findInputOption(inputElement);
-    const textElement = findTextElement(inputElement);
+    const textElement = findTextElement(inputElement, textElements);
     inputElement.addEventListener('input', () => onElementInput(inputElement, inputOption, textElement, button))
   });
 
@@ -24,15 +17,16 @@ function initValidation() {
     enableButton = isEnableButton(inputsElements, inputsOptions)
   });
 
-  form.addEventListener('submit', (event) => onFormSubmit(event, enableButton));
+  form.addEventListener('submit', (event) => onFormSubmit(event, enableButton, inputsElements, textElements));
 }
 
 /**
- * поиск dom элемента поля ошибки
+ *
  * @param inputElement
+ * @param textElements
  * @return {null}
  */
-function findTextElement(inputElement) {
+function findTextElement(inputElement, textElements) {
   let element = null
 
   textElements.forEach((textElement) => {
@@ -80,15 +74,17 @@ function setValidInputField(inputElement, inputOption, textElement) {
     isValid = false;
   }
 
-  if (isValid === true) {
-    inputElement.classList.remove('form-partner__input--error');
-    textElement.classList.remove('form-partner__text-error--active');
-  } else {
-    inputElement.classList.add('form-partner__input--error');
-    textElement.classList.add('form-partner__text-error--active');
-  }
+  if(textElement !== null) {
+    if (isValid === true) {
+      inputElement.classList.remove('form-partner__input--error');
+      textElement?.classList.remove('form-partner__text-error--active');
+    } else {
+      inputElement.classList.add('form-partner__input--error');
+      textElement?.classList.add('form-partner__text-error--active');
+    }
 
-  textElement.innerText = textError;
+    textElement.innerText = textError;
+  }
 }
 
 /**
@@ -137,15 +133,16 @@ function findInputValue(inputsElements, inputOption) {
   return value;
 }
 
-function onFormSubmit(event, enableButton) {
+function onFormSubmit(event, enableButton, inputsElements, textElements) {
   event.preventDefault();
 
   if (enableButton === true) {
     setFormSuccess();
+    event.currentTarget.reset();
   } else {
     inputsElements.forEach((inputElement) => {
       const inputOption = findInputOption(inputElement);
-      const textElement = findTextElement(inputElement);
+      const textElement = findTextElement(inputElement, textElements);
       setValidInputField(inputElement, inputOption, textElement);
     })
   }

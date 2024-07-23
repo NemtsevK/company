@@ -17,7 +17,11 @@ async function main() {
  * @return {Promise<*>}
  */
 async function getCompanies() {
-  return await loadData({ url: 'php/companies.php' });
+  try {
+    return await loadData({ url: 'php/companies.php' });
+  } catch (error) {
+    alert('Ошибка получения данных от сервера');
+  }
 }
 
 /**

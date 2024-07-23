@@ -170,7 +170,7 @@
 
 .button {
   display: inline-block;
-  padding: 18px 37px 18px 37px;
+  padding: 18px 37px;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -318,7 +318,7 @@
 
 .service {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row;
   align-items: center;
   gap: 18px
 }
@@ -385,7 +385,7 @@
 
 .main {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -568,7 +568,7 @@
 
 .join-team__company-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 25px 20px;
@@ -865,7 +865,7 @@
 .products-available__inner {
   text-align: center;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -876,10 +876,10 @@
 }
 
 .products-available__languages {
-  margin: 38px 0 0 0;
+  margin: 38px 0 0;
   padding: 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 15px 12px;
@@ -1091,12 +1091,8 @@
   margin: 0 0 20px 0;
 }
 
-.form-partner__field-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 14px;
-  align-items: center;
-  gap: 6px 0;
+.form-partner__field-container:not(:first-child) {
+  margin-top: 10px;
 }
 
 .form-partner__input {
@@ -1138,7 +1134,7 @@
 
 .form-partner__text-error {
   display: none;
-  margin-bottom: 8px;
+  margin-top: 8px;
   font-size: 12px;
   color: #ff0000;
 }
@@ -1425,6 +1421,44 @@
   background-color: var(--background-secondary);
 }
 
+.modal[open] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.modal::backdrop {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.modal__text {
+  text-align: center;
+}
+
+.modal__button {
+  margin: 20px 0 0;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+}
+
 @media (max-width: 1279px) {
   .title-h1 {
     font-size: 44px;
@@ -1521,7 +1555,7 @@
 
   .join-team__inner {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 40px 0;
@@ -1632,7 +1666,7 @@
 
   .manage__inner {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 20px;
@@ -1668,7 +1702,7 @@
 
   .yourself__container {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
@@ -1714,10 +1748,7 @@
 }
 
 @media (max-width: 767px) {
-  .page--scroll-lock {
-    overflow-y: hidden;
-    scrollbar-gutter: stable;
-  }
+
 
   .title-h1 {
     font-size: 38px;
@@ -1953,7 +1984,7 @@
 
   .join-team__inner {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 20px;
@@ -1963,6 +1994,12 @@
     width: 100%;
     text-align: center;
     padding: 0 20px;
+  }
+
+  .join-team__company-list {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
   }
 
   .join-team__info-title {
@@ -1995,7 +2032,7 @@
   .benefits__main {
     margin-top: 30px;
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 20px;
@@ -2014,12 +2051,6 @@
   }
 
   .jump-start__inner {
-    border-radius: 0;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    row-gap: 40px;
     padding: 40px 30px;
   }
 
@@ -2061,7 +2092,7 @@
 
   .manage__inner {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 30px;
@@ -2090,7 +2121,7 @@
 
   .questions__inner {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 20px;
@@ -2126,7 +2157,7 @@
 
   .yourself__container {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 40px;
@@ -2209,4 +2240,9 @@
     background-position: 16px 9px;
     background-size: 12px 22px;
   }
+}
+
+.page--scroll-lock {
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
 }

@@ -199,8 +199,8 @@
       <div class="manage__inner">
         <div class="manage__picture">
           <picture>
-            <source srcset="images/content/demo_medium.png" media="(min-width: 768px)">
-            <img class="manage__image" src="images/content/demo_small.png" alt="demo">
+            <source srcset="images/content/demo-mobile.png" media="(max-width: 767px)">
+            <img class="manage__image" src="images/content/demo-tablet.png" alt="demo">
           </picture>
         </div>
         <div class="manage__content">
@@ -258,45 +258,50 @@
     <div class="companies-benefit__inner">
       <h2 class="companies-benefit__title title-h2">See how companies benefit from partnering with iSpring</h2>
       <div class="companies-benefit__slider slider">
-        <div class="slider__inner">
-          <div class="slider__list">
-            <div class="slider__item">
-              <div class="slider__content">
-                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
-                <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
-                <div class="slider__person">
-                  <img class="slider__person-image" src="images/content/person_avatar_1.png" alt="person">
-                  <h4 class="slider__person-name">Guido Hornig</h4>
-                  <p class="slider__person-job">Founder and director of lern.link</p>
-                </div>
-              </div>
-            </div>
-            <div class="slider__item">
-              <div class="slider__content">
-                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
-                <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
-                <div class="slider__person">
-                  <img class="slider__person-image" src="images/content/person_avatar_2.png" alt="person">
-                  <h4 class="slider__person-name">Guido Hornig</h4>
-                  <p class="slider__person-job">Founder and director of lern.link</p>
-                </div>
-              </div>
-            </div>
-            <div class="slider__item">
-              <div class="slider__content">
-                <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
-                <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling earning management systems, which brings lern.link new business opportunities.</p>
-                <div class="slider__person">
-                  <img class="slider__person-image" src="images/content/person_avatar_3.png" alt="person">
-                  <h4 class="slider__person-name">Guido Hornig</h4>
-                  <p class="slider__person-job">Founder and director of lern.link</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slider__arrows"></div>
+        <div class="slider__buttons">
+          <button id="left" class="slider__button slider__button--prev"></button>
+          <button id="right" class="slider__button slider__button--next"></button>
         </div>
-        <div class="slider__dots"></div>
+        <div class="slider__dots">
+          <button class="slider__dot"></button>
+          <button class="slider__dot"></button>
+          <button class="slider__dot"></button>
+        </div>
+        <ul class="slider__carousel">
+          <li class="slider__card">
+            <div class="slider__content">
+              <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
+              <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
+              <div class="slider__person">
+                <img class="slider__person-image" src="images/content/person-1.jpg" alt="person">
+                <h4 class="slider__person-name">Guido Hornig</h4>
+                <p class="slider__person-job">Founder and director of lern.link</p>
+              </div>
+            </div>
+          </li>
+          <li class="slider__card">
+            <div class="slider__content">
+              <h3 class="slider__title title-h3"> iSpring has transformed our training program beyond expectations!</h3>
+              <p class="slider__text text">Since implementing iSpring, we've seen a dramatic improvement in our training outcomes. The platform's user-friendly interface and robust features have enabled us to deliver high-quality training materials efficiently, leading to increased employee engagement and performance.</p>
+              <div class="slider__person">
+                <img class="slider__person-image" src="images/content/person-2.jpg" alt="person">
+                <h4 class="slider__person-name">Sarah Mitchell</h4>
+                <p class="slider__person-job">Training Manager at FutureLearn Corp</p>
+              </div>
+            </div>
+          </li>
+          <li class="slider__card">
+            <div class="slider__content">
+              <h3 class="slider__title title-h3">iSpring’s comprehensive tools have revolutionized our e-learning approach!</h3>
+              <p class="slider__text text">Partnering with iSpring has been a game-changer for our e-learning initiatives. The seamless integration with our existing systems and the customizable features have allowed us to create engaging and interactive courses, driving higher learner satisfaction and completion rates.</p>
+              <div class="slider__person">
+                <img class="slider__person-image" src="images/content/person-3.jpg" alt="person">
+                <h4 class="slider__person-name">Michael Adams</h4>
+                <p class="slider__person-job">Head of Learning and Development at BrightMind Academy</p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -379,8 +384,6 @@
     <button class="modal__button button button--second">ОК</button>
   </div>
 </dialog>
-<script src="js/jquery-3.6.1.min.js"></script>
-<script src="js/slick.min.js"></script>
 <script src="js/main.js" type="module"></script>
 </body>
 </html>

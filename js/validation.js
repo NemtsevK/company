@@ -54,33 +54,36 @@ function findInputOption(inputElement) {
  * @param textElement
  */
 function setValidInputField(inputElement, inputOption, textElement) {
-  let textError = '';
-  let isValid = true;
+  const inputErrorClass = 'form-partner__input--error';
+  const textErrorClass = 'form-partner__text-error--active';
   const inputValue = inputElement.value;
   const { required, max, pattern } = inputOption;
 
+  let textError = '';
+  let isValid = true;
+
   if (inputValue === '' && inputOption.required === true) {
-    textError = 'Поле обязательное для заполнения';
+    textError = 'The field is required';
     isValid = false;
   } else if (inputValue.length > max && max !== null) {
-    textError = `Количество символов должно быть не больше ${max}`;
+    textError = `The number of characters should be no more than ${max}`;
     isValid = false;
   } else if (pattern !== null && pattern.string.test(inputValue) === false && (inputValue !== '' && required === false || required === true)) {
     // проверка на регулярное выражение
     textError = pattern.name;
     isValid = false;
   } else if (REGEX.test(inputValue)) {
-    textError = 'Запрещены одни пробелы';
+    textError = 'Only spaces are prohibited';
     isValid = false;
   }
 
   if(textElement !== null) {
     if (isValid === true) {
-      inputElement.classList.remove('form-partner__input--error');
-      textElement?.classList.remove('form-partner__text-error--active');
+      inputElement.classList.remove(inputErrorClass);
+      textElement?.classList.remove(textErrorClass);
     } else {
-      inputElement.classList.add('form-partner__input--error');
-      textElement?.classList.add('form-partner__text-error--active');
+      inputElement.classList.add(inputErrorClass);
+      textElement?.classList.add(textErrorClass);
     }
 
     textElement.innerText = textError;
@@ -137,8 +140,7 @@ function onFormSubmit(event, enableButton, inputsElements, textElements) {
   event.preventDefault();
 
   if (enableButton === true) {
-    setFormSuccess();
-    event.currentTarget.reset();
+    setFormSuccess(event.currentTarget);
   } else {
     inputsElements.forEach((inputElement) => {
       const inputOption = findInputOption(inputElement);

@@ -1,5 +1,6 @@
-import { initSlider, initMenu, } from './utils.js';
+import { initMenu, } from './utils.js';
 import { initValidation } from './validation.js';
+import { initSlider } from './slider.js';
 
 initSlider();
 initMenu();

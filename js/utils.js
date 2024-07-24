@@ -23,80 +23,51 @@ async function loadData({
 }
 
 /**
- * инициализация слайдера
- */
-function initSlider() {
-  $('.slider__list').slick({
-    infinite: true,
-    arrows: true,
-    dots: true,
-    slidesToShow: 1,
-    speed: 800,
-    centerMode: true,
-    variableWidth: true,
-    appendArrows: $('.slider__arrows'),
-    appendDots: $('.slider__dots'),
-    responsive: [
-      {
-        breakpoint: 100,
-        settings: {
-          centerMode: false,
-          variableWidth: false,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          centerMode: true,
-          variableWidth: false,
-        }
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          centerMode: true,
-          variableWidth: true,
-        }
-      },
-    ]
-  });
-}
-
-/**
  * инициализация меню навигации
  */
 function initMenu() {
+  const pattern = /(header|nav)+/;
   const page = document.querySelector('.page');
-  const header = document.querySelector('.header');
+  const header = page.querySelector('.header');
   header.classList.remove('header--nojs');
 
-  const nav = document.querySelector('.nav');
+  const nav = page.querySelector('.nav');
   const navToggle = header.querySelector('.header__toggle-nav');
 
-  const onNavToggleClick = (event) => {
+  const toggleMenu = () => {
     const isClosed = nav.classList.toggle('nav--closed');
-    page.classList.toggle('page--scroll-lock')
     nav.classList.toggle('nav--opened');
-    event.currentTarget.classList.toggle('header__toggle-nav--active');
+    navToggle.classList.toggle('header__toggle-nav--active');
     navToggle.setAttribute('aria-label', isClosed ? 'Открыть меню' : 'Закрыть меню');
   }
 
+  const onPageClick =({target})=> {
+    if(pattern.test(target.className) === false && nav.classList.contains('nav--opened')) {
+      toggleMenu();
+    }
+  }
+
+  const onNavToggleClick = () => toggleMenu();
+
   navToggle.addEventListener('click', onNavToggleClick);
+  page.addEventListener('click', onPageClick);
 }
 
 /**
  *
+ * @param form
  * @return {Promise<void>}
  */
-async function setFormSuccess() {
+async function setFormSuccess(form) {
   const result = await sendPartnerData();
   const text = result === true ? RequestText.successful : RequestText.error;
   setModal(text)
+  if (result === true) form.reset()
 }
 
 /**
  * отправить данные на сервер
- * @return {Promise<*>}
+ * @return {Promise<boolean|*>}
  */
 async function sendPartnerData() {
   const companyName = document.querySelector('#company-name');
@@ -127,15 +98,16 @@ function setModal(text) {
   const modalText = modal.querySelector('.modal__text')
   const buttonModal = modal.querySelector('.modal__button');
 
-  const onButtonClick = () => {
+  const closeModal = () => {
     modal.close();
     page.classList.remove('page--scroll-lock');
   }
 
+  const onButtonClick = () => closeModal();
+
   const onModalClick = ({ currentTarget, target }) => {
     if (target === currentTarget) {
-      currentTarget.close();
-      page.classList.remove('page--scroll-lock');
+      closeModal();
     }
   }
 
@@ -144,7 +116,13 @@ function setModal(text) {
   modalText.innerText = text;
 
   modal.addEventListener('click', onModalClick);
+  modal.addEventListener('keydown', (event) => {
+    if (event.code === 'Escape') {
+      closeModal();
+    }
+  })
+
   buttonModal.addEventListener('click', onButtonClick);
 }
 
-export { loadData, initSlider, initMenu, setFormSuccess }
+export { loadData, initMenu, setFormSuccess }

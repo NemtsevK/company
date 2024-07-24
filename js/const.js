@@ -1,24 +1,24 @@
 export const REGEX = /^[\s\n\t]+$/;
 
-const ENGLISH = {
-  string: /^[A-z0-9.\s-]+$/,
-  name: 'Разрешены только цифры, дефис, точка и буквы английского алфавита',
+const TEXT = {
+  string: /^[A-zА-яЁё0-9.\s-]+$/,
+  name: 'Only letters, numbers, hyphens and periods are allowed',
 }
 
 const PHONE = {
   string: /^[0-9-+]+$/,
-  name: 'Введите номер телефона.',
+  name: 'Enter your phone number',
 }
 
 const EMAIL = {
   string: /^([a-z0-9._-]+@[a-z0-9._-]+)$/,
-  name: 'Введите адрес электронной почты.',
+  name: 'Enter your email address',
 }
 
 export const inputsOptions = [
   {
     id: 'company-name',
-    pattern: ENGLISH,
+    pattern: TEXT,
     max: 100,
     required: true,
   },
@@ -36,7 +36,7 @@ export const inputsOptions = [
   },
   {
     id: 'description',
-    pattern: ENGLISH,
+    pattern: TEXT,
     max: 200,
     required: true,
   },

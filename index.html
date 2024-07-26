@@ -18,6 +18,7 @@
   <link rel="preload" href="fonts/Roboto-Regular.woff2" type="font/woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/Roboto-Medium.woff2" type="font/woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tiny-slider.css">
 </head>
 <body class="page__body">
 <header class="header header--nojs">
@@ -259,16 +260,11 @@
       <h2 class="companies-benefit__title title-h2">See how companies benefit from partnering with iSpring</h2>
       <div class="companies-benefit__slider slider">
         <div class="slider__buttons">
-          <button id="left" class="slider__button slider__button--prev"></button>
-          <button id="right" class="slider__button slider__button--next"></button>
+          <button class="slider__button slider__button--prev"></button>
+          <button class="slider__button slider__button--next"></button>
         </div>
-        <div class="slider__dots">
-          <button class="slider__dot"></button>
-          <button class="slider__dot"></button>
-          <button class="slider__dot"></button>
-        </div>
-        <ul class="slider__carousel">
-          <li class="slider__card">
+        <div class="slider__carousel">
+          <div class="slider__card">
             <div class="slider__content">
               <h3 class="slider__title title-h3">Our income from partnering with iSpring has been increasing every year!</h3>
               <p class="slider__text text">Besides iSpring’s transparent discount system for partners, the software often becomes a door opener to selling learning management systems, which brings lern.link new business opportunities.</p>
@@ -278,8 +274,8 @@
                 <p class="slider__person-job">Founder and director of lern.link</p>
               </div>
             </div>
-          </li>
-          <li class="slider__card">
+          </div>
+          <div class="slider__card">
             <div class="slider__content">
               <h3 class="slider__title title-h3"> iSpring has transformed our training program beyond expectations!</h3>
               <p class="slider__text text">Since implementing iSpring, we've seen a dramatic improvement in our training outcomes. The platform's user-friendly interface and robust features have enabled us to deliver high-quality training materials efficiently, leading to increased employee engagement and performance.</p>
@@ -289,8 +285,8 @@
                 <p class="slider__person-job">Training Manager at FutureLearn Corp</p>
               </div>
             </div>
-          </li>
-          <li class="slider__card">
+          </div>
+          <div class="slider__card">
             <div class="slider__content">
               <h3 class="slider__title title-h3">iSpring’s comprehensive tools have revolutionized our e-learning approach!</h3>
               <p class="slider__text text">Partnering with iSpring has been a game-changer for our e-learning initiatives. The seamless integration with our existing systems and the customizable features have allowed us to create engaging and interactive courses, driving higher learner satisfaction and completion rates.</p>
@@ -300,8 +296,25 @@
                 <p class="slider__person-job">Head of Learning and Development at BrightMind Academy</p>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+          <div class="slider__card">
+            <div class="slider__content">
+              <h3 class="slider__title title-h3">Partnering with iSpring has boosted our business growth exponentially!</h3>
+              <p class="slider__text text">iSpring's comprehensive suite of tools and exceptional customer support have been pivotal in expanding our training offerings. Their innovative solutions not only enhance our content but also attract a wider client base, leading to significant business development for EduQuest.</p>
+              <div class="slider__person">
+                <img class="slider__person-image" src="images/content/person-4.jpg" alt="person">
+                <h4 class="slider__person-name">Emily Davis</h4>
+                <p class="slider__person-job">CEO of EduQuest</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider__dots">
+        <button class="slider__dot"></button>
+        <button class="slider__dot"></button>
+        <button class="slider__dot"></button>
+        <button class="slider__dot"></button>
       </div>
     </div>
   </section>
@@ -384,6 +397,7 @@
     <button class="modal__button button button--second">ОК</button>
   </div>
 </dialog>
+<script src="js/tiny-slider.js"></script>
 <script src="js/main.js" type="module"></script>
 </body>
 </html>

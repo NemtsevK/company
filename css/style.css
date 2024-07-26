@@ -939,15 +939,12 @@
 }
 
 .companies-benefit__inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   overflow-x: hidden;
 }
 
 .companies-benefit__title {
   width: 650px;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -956,9 +953,10 @@
 }
 
 .slider {
-  width: calc(1050px * 3);
   position: relative;
-  margin-bottom: 27px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(1050px * 3);
 }
 
 .slider__buttons {
@@ -970,7 +968,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: calc((100% / 3) - (50px * 2 / 3) + 50px);
+  width: 1050px;
 }
 
 .slider__button {
@@ -1013,44 +1011,8 @@
   transform: rotate(180deg);
 }
 
-.slider__carousel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - (50px * 2 / 3));
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 50px;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-.slider__carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.slider__carousel--no-transition {
-  scroll-behavior: auto;
-}
-
-.slider__carousel--dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
-
-.slider__carousel--dragging .slider__card {
-  cursor: grab;
-  user-select: none;
-}
-
 .slider__card {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  scroll-snap-align: start;
-  list-style: none;
-  cursor: pointer;
+  padding: 0 25px;
 }
 
 .slider__content {
@@ -1058,6 +1020,7 @@
   grid-template-columns: 369px 350px;
   gap: 24px 90px;
   justify-content: center;
+  height: 100%;
   margin: 0 auto;
   padding: 92px 95px 66px 96px;
   background-color: var(--background-other);
@@ -1123,14 +1086,11 @@
 }
 
 .slider__dots {
-  position: absolute;
-  left: 50%;
-  bottom: -27px;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 13px;
+  margin-top: 20px;
 }
 
 .slider__dot {
@@ -1140,11 +1100,10 @@
   border-radius: 50%;
   border: 0;
   background-color: #edf2f7;
-  /*background-color: red;*/
   cursor: pointer;
 }
 
-.slider__dot--active {
+.slider__dot.tns-nav-active {
   background-color: var(--background-secondary);
 }
 
@@ -1649,12 +1608,6 @@
 
   .slider {
     width: 100%;
-    position: relative;
-  }
-
-  .slider__carousel {
-    grid-auto-columns: 100%;
-    gap: 0;
   }
 
   .slider__buttons {
@@ -1680,7 +1633,7 @@
     width: 100%;
     border-radius: 0;
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 40px;
@@ -2197,8 +2150,8 @@
 
   .slider__content {
     display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
     column-gap: 20px;
     padding: 60px 40px 20px;

@@ -1,6 +1,34 @@
 import { RequestText } from './const.js'
 
 /**
+ * функция, которая вызывает другую функцию, «пропуская» некоторые вызовы с определённой периодичностью.
+ * @param callee - функция, которую надо вызывать
+ * @param timeout - интервал в мс, с которым следует пропускать вызовы
+ * @return {perform}
+ */
+function throttle(callee, timeout) {
+  // Таймер будет определять, надо ли нам пропускать текущий вызов.
+  let timer = null
+
+  // Как результат возвращаем другую функцию.
+  // Это нужно, чтобы мы могли не менять другие части кода,
+  return function perform(...args) {
+    // Если таймер есть, то функция уже была вызвана, и значит новый вызов следует пропустить.
+    if (timer) return
+
+    // Если таймера нет, значит мы можем вызвать функцию:
+    timer = setTimeout(() => {
+      // Аргументы передаём неизменными в функцию-аргумент:
+      callee(...args)
+
+      // По окончании очищаем таймер:
+      clearTimeout(timer)
+      timer = null
+    }, timeout)
+  }
+}
+
+/**
  * загрузка данных на сервер и их получение
  * @param url
  * @param method
@@ -9,11 +37,11 @@ import { RequestText } from './const.js'
  * @returns {Promise<any>}
  */
 async function loadData({
-  url,
-  method = 'GET',
-  body = null,
-  headers = { 'Content-Type': 'application/x-www-form-urlencoded' },
-}) {
+                          url,
+                          method = 'GET',
+                          body = null,
+                          headers = { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        }) {
   try {
     const response = await fetch(url, { method, body, headers });
     return await response.json();
@@ -125,4 +153,4 @@ function setModal(text) {
   buttonModal.addEventListener('click', onButtonClick);
 }
 
-export { loadData, initMenu, setFormSuccess }
+export { throttle, loadData, initMenu, setFormSuccess }

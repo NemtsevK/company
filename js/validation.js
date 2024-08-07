@@ -113,7 +113,7 @@ function isValidInput(inputsElements, inputOption) {
     pattern.string.test(value)
     && (value.length <= max || max === null)
     && REGEX.test(value) === false
-    && (value !== '' && required === false || required === true)
+    && (value !== '' && required === true || required === false)
     || value === '' && required === false
   );
 }
